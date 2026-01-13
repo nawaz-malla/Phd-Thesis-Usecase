@@ -1,0 +1,2144 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 2 8
+    bytecblock "locked" "client" "e1" "e4" "e9" "e11" "e14" "e15" "e7" "e12" "e13" "hotel" "e0" "e2" "e3" "e5" "e6" "e8" "e10" "confirm_flag" "payment_completed" "cancel_flag" "refund_id" "admin" "booking_date" "num_rooms" "room_available" "quotation" "payment_address" "booking_id" "cancel_motivation"
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // smart_contracts/hotelbooking/contract.py:390-391
+    // # --- Participants ---
+    // self.client = GlobalState(
+    bytec_1 // "client"
+    // smart_contracts/hotelbooking/contract.py:392
+    // Account("NNQ4W4DT5BBTAR6JMBLWQUYVNKKKXNRBCWTMQHHNJT2PLMLP3GSVDSDEKM")
+    pushbytes base32(NNQ4W4DT5BBTAR6JMBLWQUYVNKKKXNRBCWTMQHHNJT2PLMLP3GSQ) // addr NNQ4W4DT5BBTAR6JMBLWQUYVNKKKXNRBCWTMQHHNJT2PLMLP3GSVDSDEKM
+    // smart_contracts/hotelbooking/contract.py:390-393
+    // # --- Participants ---
+    // self.client = GlobalState(
+    //     Account("NNQ4W4DT5BBTAR6JMBLWQUYVNKKKXNRBCWTMQHHNJT2PLMLP3GSVDSDEKM")
+    // )
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:394
+    // self.hotel = GlobalState(
+    bytec 11 // "hotel"
+    // smart_contracts/hotelbooking/contract.py:395
+    // Account("SXPMWXP2X5TTLKTD5BN2DYXEJSN5OM6T4LNYLSHRRG56X4WD5RCVF4RC3I")
+    pushbytes base32(SXPMWXP2X5TTLKTD5BN2DYXEJSN5OM6T4LNYLSHRRG56X4WD5RCQ) // addr SXPMWXP2X5TTLKTD5BN2DYXEJSN5OM6T4LNYLSHRRG56X4WD5RCVF4RC3I
+    // smart_contracts/hotelbooking/contract.py:394-396
+    // self.hotel = GlobalState(
+    //     Account("SXPMWXP2X5TTLKTD5BN2DYXEJSN5OM6T4LNYLSHRRG56X4WD5RCVF4RC3I")
+    // )
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:401-402
+    // # --- Process Control (15 edges) ---
+    // self.e0 = GlobalState(UInt64(1))  # start event
+    bytec 12 // "e0"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:403
+    // self.e1 = GlobalState(UInt64(0))  # after start xor
+    bytec_2 // "e1"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:404
+    // self.e2 = GlobalState(UInt64(0))  # after check_room
+    bytec 13 // "e2"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:405
+    // self.e3 = GlobalState(UInt64(0))  # after give_availability
+    bytec 14 // "e3"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:406
+    // self.e4 = GlobalState(UInt64(0))  # after accept_booking
+    bytec_3 // "e4"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:407
+    // self.e5 = GlobalState(UInt64(0))  # confirm=true path
+    bytec 15 // "e5"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:408
+    // self.e6 = GlobalState(UInt64(0))  # after price_quotation
+    bytec 16 // "e6"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:409
+    // self.e7 = GlobalState(UInt64(0))  # after confirmation
+    bytec 8 // "e7"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:410
+    // self.e8 = GlobalState(UInt64(0))  # parallel branch 1: payment (send)
+    bytec 17 // "e8"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:411
+    // self.e9 = GlobalState(UInt64(0))  # parallel branch 1: payment (receive)
+    bytec 4 // "e9"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:412
+    // self.e10 = GlobalState(UInt64(0))  # parallel branch 2: booking_id (send)
+    bytec 18 // "e10"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:413
+    // self.e11 = GlobalState(UInt64(0))  # parallel branch 2: booking_id (receive)
+    bytec 5 // "e11"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:414
+    // self.e12 = GlobalState(UInt64(0))  # after parallel join
+    bytec 9 // "e12"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:415
+    // self.e13 = GlobalState(UInt64(0))  # cancel=true path
+    bytec 10 // "e13"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:416
+    // self.e14 = GlobalState(UInt64(0))  # cancel=false path (end success)
+    bytec 6 // "e14"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:417
+    // self.e15 = GlobalState(UInt64(0))  # reject path
+    bytec 7 // "e15"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:419
+    // self.locked = GlobalState(UInt64(0))
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:421-422
+    // # --- Data Objects ---
+    // self.booking_date = GlobalState(String(""))
+    bytec 24 // "booking_date"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:423
+    // self.num_rooms = GlobalState(UInt64(0))
+    bytec 25 // "num_rooms"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:424
+    // self.room_available = GlobalState(UInt64(0))
+    bytec 26 // "room_available"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:425
+    // self.confirm_flag = GlobalState(UInt64(0))
+    bytec 19 // "confirm_flag"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:426
+    // self.quotation = GlobalState(String(""))
+    bytec 27 // "quotation"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:427
+    // self.payment_address = GlobalState(String(""))
+    bytec 28 // "payment_address"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:428
+    // self.payment_completed = GlobalState(UInt64(0))
+    bytec 20 // "payment_completed"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:429
+    // self.booking_id = GlobalState(String(""))
+    bytec 29 // "booking_id"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:430
+    // self.cancel_flag = GlobalState(UInt64(0))
+    bytec 21 // "cancel_flag"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:431
+    // self.cancel_motivation = GlobalState(String(""))
+    bytec 30 // "cancel_motivation"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:432
+    // self.refund_id = GlobalState(String(""))
+    bytec 22 // "refund_id"
+    pushbytes ""
+    app_global_put
+
+main_after_if_else@2:
+    // smart_contracts/hotelbooking/contract.py:388
+    // class HotelBooking(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@26
+    pushbytes 0x24378d3c // method "delete()void"
+    txna ApplicationArgs 0
+    match main_delete_route@5
+
+main_switch_case_next@6:
+    // smart_contracts/hotelbooking/contract.py:388
+    // class HotelBooking(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    assert
+    pushbytess 0xccf37f8b 0xd4ea28de 0x90d51ff6 0xd99a01ce 0xbe5b8d08 0x54fa5fae 0x392a78fc 0xb5e82ec9 0x5c14e442 0x481db88c 0x651b6e8c 0x049704a5 0xa7b8821c 0xee9de61e 0x702d613f // method "execute()uint64", method "check_room(string,uint64)void", method "give_availability(uint64)void", method "accept_booking(uint64)void", method "price_quotation(string)void", method "confirmation(uint64,uint64)void", method "payment_send(string)void", method "accept_payment(string)void", method "give_id(string)void", method "booking_confirmation(uint64)void", method "cancel_order(string)void", method "ask_refund(string)void", method "refund_request(string)void", method "reject_order()void", method "unlock()void"
+    txna ApplicationArgs 0
+    match execute check_room give_availability accept_booking price_quotation confirmation payment_send accept_payment give_id booking_confirmation cancel_order ask_refund refund_request reject_order unlock
+    err
+
+main_delete_route@5:
+    // smart_contracts/hotelbooking/contract.py:782
+    // @abimethod(allow_actions=["DeleteApplication"])
+    txn OnCompletion
+    pushint 5 // DeleteApplication
+    ==
+    txn ApplicationID
+    &&
+    assert
+    b delete
+
+main_bare_routing@26:
+    // smart_contracts/hotelbooking/contract.py:388
+    // class HotelBooking(ARC4Contract):
+    intc_0 // NoOp
+    pushint 4 // UpdateApplication
+    txn OnCompletion
+    match main_create@27 main_update@28
+    err
+
+main_update@28:
+    // smart_contracts/hotelbooking/contract.py:766
+    // @baremethod(allow_actions=["UpdateApplication"])
+    txn ApplicationID
+    assert
+    // smart_contracts/hotelbooking/contract.py:768
+    // assert Txn.sender == self.admin.value, "Only admin can update"
+    txn Sender
+    intc_0 // 0
+    bytec 23 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can update
+    // smart_contracts/hotelbooking/contract.py:769
+    // self.locked.value = UInt64(1)
+    bytec_0 // "locked"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:770
+    // log(Bytes(b"Contract locked for update"))
+    pushbytes 0x436f6e7472616374206c6f636b656420666f7220757064617465
+    log
+    // smart_contracts/hotelbooking/contract.py:766
+    // @baremethod(allow_actions=["UpdateApplication"])
+    intc_1 // 1
+    return
+
+main_create@27:
+    // smart_contracts/hotelbooking/contract.py:436
+    // self.admin.value = Txn.sender
+    bytec 23 // "admin"
+    txn Sender
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:437
+    // self.e0.value = UInt64(1)
+    bytec 12 // "e0"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:438
+    // self.locked.value = UInt64(0)
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:439
+    // log(Bytes(b"HotelBooking deployed"))
+    pushbytes 0x486f74656c426f6f6b696e67206465706c6f796564
+    log
+    // smart_contracts/hotelbooking/contract.py:434
+    // @baremethod(create="allow")
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.execute[routing]() -> void:
+execute:
+    // smart_contracts/hotelbooking/contract.py:556
+    // @abimethod
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    itob
+    pushbytes 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.check_room[routing]() -> void:
+check_room:
+    // smart_contracts/hotelbooking/contract.py:591-592
+    // # --- Top Flow: Availability Loop ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/hotelbooking/contract.py:595
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:596
+    // assert self.e2.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 13 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:597
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:599
+    // self.e2.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 13 // "e2"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:600
+    // self.booking_date.value = date
+    bytec 24 // "booking_date"
+    uncover 2
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:601
+    // self.num_rooms.value = num_rooms
+    bytec 25 // "num_rooms"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:602
+    // self.e3.value += UInt64(1)
+    intc_0 // 0
+    bytec 14 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    intc_1 // 1
+    +
+    bytec 14 // "e3"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:603
+    // log(Bytes(b"Client: check_room"))
+    pushbytes 0x436c69656e743a20636865636b5f726f6f6d
+    log
+    // smart_contracts/hotelbooking/contract.py:591-592
+    // # --- Top Flow: Availability Loop ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.give_availability[routing]() -> void:
+give_availability:
+    // smart_contracts/hotelbooking/contract.py:605
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/hotelbooking/contract.py:608
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:609
+    // assert self.e3.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 14 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:610
+    // assert Txn.sender == self.hotel.value, "Only hotel"
+    txn Sender
+    intc_0 // 0
+    bytec 11 // "hotel"
+    app_global_get_ex
+    assert // check self.hotel exists
+    ==
+    assert // Only hotel
+    // smart_contracts/hotelbooking/contract.py:612
+    // self.e3.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 14 // "e3"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:613
+    // self.room_available.value = confirm
+    bytec 26 // "room_available"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:614
+    // self.e4.value += UInt64(1)
+    intc_0 // 0
+    bytec_3 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    intc_1 // 1
+    +
+    bytec_3 // "e4"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:615
+    // log(Bytes(b"Hotel: give_availability"))
+    pushbytes 0x486f74656c3a20676976655f617661696c6162696c697479
+    log
+    // smart_contracts/hotelbooking/contract.py:605
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.accept_booking[routing]() -> void:
+accept_booking:
+    // smart_contracts/hotelbooking/contract.py:618
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/hotelbooking/contract.py:621
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:622
+    // assert self.e4.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec_3 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:623
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:625
+    // self.confirm_flag.value = confirm
+    bytec 19 // "confirm_flag"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:626
+    // log(Bytes(b"Client: accept_booking"))
+    pushbytes 0x436c69656e743a206163636570745f626f6f6b696e67
+    log
+    // smart_contracts/hotelbooking/contract.py:627
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:618
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.price_quotation[routing]() -> void:
+price_quotation:
+    // smart_contracts/hotelbooking/contract.py:629-630
+    // # --- Middle Flow: Price & Confirmation ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    // smart_contracts/hotelbooking/contract.py:633
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:634
+    // assert self.e5.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 15 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:635
+    // assert Txn.sender == self.hotel.value, "Only hotel"
+    txn Sender
+    intc_0 // 0
+    bytec 11 // "hotel"
+    app_global_get_ex
+    assert // check self.hotel exists
+    ==
+    assert // Only hotel
+    // smart_contracts/hotelbooking/contract.py:637
+    // self.e5.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 15 // "e5"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:638
+    // self.quotation.value = quotation
+    bytec 27 // "quotation"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:639
+    // self.e6.value += UInt64(1)
+    intc_0 // 0
+    bytec 16 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    intc_1 // 1
+    +
+    bytec 16 // "e6"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:640
+    // log(Bytes(b"Hotel: price_quotation"))
+    pushbytes 0x486f74656c3a2070726963655f71756f746174696f6e
+    log
+    // smart_contracts/hotelbooking/contract.py:629-630
+    // # --- Middle Flow: Price & Confirmation ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.confirmation[routing]() -> void:
+confirmation:
+    // smart_contracts/hotelbooking/contract.py:642
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    txna ApplicationArgs 2
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // smart_contracts/hotelbooking/contract.py:645
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:646
+    // assert self.e6.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 16 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:647
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:649
+    // self.e6.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 16 // "e6"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:650
+    // self.confirm_flag.value = confirm
+    bytec 19 // "confirm_flag"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:651
+    // self.e7.value += UInt64(1)
+    intc_0 // 0
+    bytec 8 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    intc_1 // 1
+    +
+    bytec 8 // "e7"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:652
+    // log(Bytes(b"Client: confirmation"))
+    pushbytes 0x436c69656e743a20636f6e6669726d6174696f6e
+    log
+    // smart_contracts/hotelbooking/contract.py:653
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:642
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.payment_send[routing]() -> void:
+payment_send:
+    // smart_contracts/hotelbooking/contract.py:655-656
+    // # --- Parallel Flow: Payment Branch ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    // smart_contracts/hotelbooking/contract.py:659
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:660
+    // assert self.e8.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 17 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:661
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:663
+    // self.e8.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 17 // "e8"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:664
+    // self.payment_address.value = address_payable
+    bytec 28 // "payment_address"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:665
+    // self.e9.value += UInt64(1)
+    intc_0 // 0
+    bytec 4 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    intc_1 // 1
+    +
+    bytec 4 // "e9"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:666
+    // log(Bytes(b"Client: payment_send"))
+    pushbytes 0x436c69656e743a207061796d656e745f73656e64
+    log
+    // smart_contracts/hotelbooking/contract.py:667
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:655-656
+    // # --- Parallel Flow: Payment Branch ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.accept_payment[routing]() -> void:
+accept_payment:
+    // smart_contracts/hotelbooking/contract.py:669
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    swap
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    // smart_contracts/hotelbooking/contract.py:672
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:673
+    // assert self.e9.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 4 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:674
+    // assert Txn.sender == self.hotel.value, "Only hotel"
+    txn Sender
+    intc_0 // 0
+    bytec 11 // "hotel"
+    app_global_get_ex
+    assert // check self.hotel exists
+    swap
+    dig 1
+    ==
+    assert // Only hotel
+    // smart_contracts/hotelbooking/contract.py:676-680
+    // itxn.Payment(
+    //     amount=10000,
+    //     receiver=self.hotel.value,
+    //     fee=2500,
+    // ).submit()
+    itxn_begin
+    itxn_field Receiver
+    // smart_contracts/hotelbooking/contract.py:677
+    // amount=10000,
+    pushint 10000
+    itxn_field Amount
+    // smart_contracts/hotelbooking/contract.py:676
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // smart_contracts/hotelbooking/contract.py:679
+    // fee=2500,
+    pushint 2500
+    itxn_field Fee
+    // smart_contracts/hotelbooking/contract.py:676-680
+    // itxn.Payment(
+    //     amount=10000,
+    //     receiver=self.hotel.value,
+    //     fee=2500,
+    // ).submit()
+    itxn_submit
+    // smart_contracts/hotelbooking/contract.py:682
+    // self.payment_completed.value = UInt64(1)
+    bytec 20 // "payment_completed"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:683
+    // log(Bytes(b"Hotel: accept_payment"))
+    pushbytes 0x486f74656c3a206163636570745f7061796d656e74
+    log
+    // smart_contracts/hotelbooking/contract.py:684
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:669
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.give_id[routing]() -> void:
+give_id:
+    // smart_contracts/hotelbooking/contract.py:686-687
+    // # --- Parallel Flow: Booking Confirmation Branch ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    // smart_contracts/hotelbooking/contract.py:690
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:691
+    // assert self.e10.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 18 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:692
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:694
+    // self.e10.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 18 // "e10"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:695
+    // self.booking_id.value = booking_id
+    bytec 29 // "booking_id"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:696
+    // self.e11.value += UInt64(1)
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    intc_1 // 1
+    +
+    bytec 5 // "e11"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:697
+    // log(Bytes(b"Client: give_id"))
+    pushbytes 0x436c69656e743a20676976655f6964
+    log
+    // smart_contracts/hotelbooking/contract.py:686-687
+    // # --- Parallel Flow: Booking Confirmation Branch ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.booking_confirmation[routing]() -> void:
+booking_confirmation:
+    // smart_contracts/hotelbooking/contract.py:700
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // smart_contracts/hotelbooking/contract.py:703
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:704
+    // assert self.e11.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:705
+    // assert Txn.sender == self.hotel.value, "Only hotel"
+    txn Sender
+    intc_0 // 0
+    bytec 11 // "hotel"
+    app_global_get_ex
+    assert // check self.hotel exists
+    ==
+    assert // Only hotel
+    // smart_contracts/hotelbooking/contract.py:707
+    // self.cancel_flag.value = cancel
+    bytec 21 // "cancel_flag"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:708
+    // log(Bytes(b"Hotel: booking_confirmation"))
+    pushbytes 0x486f74656c3a20626f6f6b696e675f636f6e6669726d6174696f6e
+    log
+    // smart_contracts/hotelbooking/contract.py:709
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:700
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.cancel_order[routing]() -> void:
+cancel_order:
+    // smart_contracts/hotelbooking/contract.py:711-712
+    // # --- Cancel/Refund Flow ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    // smart_contracts/hotelbooking/contract.py:715
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:716
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:718
+    // self.cancel_motivation.value = motivation
+    bytec 30 // "cancel_motivation"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:719
+    // self.cancel_flag.value = UInt64(1)
+    bytec 21 // "cancel_flag"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:720
+    // log(Bytes(b"Client: cancel_order"))
+    pushbytes 0x436c69656e743a2063616e63656c5f6f72646572
+    log
+    // smart_contracts/hotelbooking/contract.py:711-712
+    // # --- Cancel/Refund Flow ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.ask_refund[routing]() -> void:
+ask_refund:
+    // smart_contracts/hotelbooking/contract.py:722
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    extract 2 0
+    // smart_contracts/hotelbooking/contract.py:725
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:726
+    // assert self.e13.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 10 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    dup
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:727
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:729
+    // self.e13.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 10 // "e13"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:730
+    // self.refund_id.value = refund_id
+    bytec 22 // "refund_id"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:731
+    // log(Bytes(b"Client: ask_refund"))
+    pushbytes 0x436c69656e743a2061736b5f726566756e64
+    log
+    // smart_contracts/hotelbooking/contract.py:722
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.refund_request[routing]() -> void:
+refund_request:
+    // smart_contracts/hotelbooking/contract.py:733
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16 // on error: invalid array length header
+    intc_2 // 2
+    +
+    swap
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    // smart_contracts/hotelbooking/contract.py:736
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:737
+    // assert self.e13.value == UInt64(0) and (self.refund_id.value) != String(
+    intc_0 // 0
+    bytec 10 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    // smart_contracts/hotelbooking/contract.py:737-739
+    // assert self.e13.value == UInt64(0) and (self.refund_id.value) != String(
+    //     ""
+    // ), "Refund not requested"
+    bnz refund_request_bool_false@4
+    // smart_contracts/hotelbooking/contract.py:737
+    // assert self.e13.value == UInt64(0) and (self.refund_id.value) != String(
+    intc_0 // 0
+    bytec 22 // "refund_id"
+    app_global_get_ex
+    assert // check self.refund_id exists
+    // smart_contracts/hotelbooking/contract.py:737-739
+    // assert self.e13.value == UInt64(0) and (self.refund_id.value) != String(
+    //     ""
+    // ), "Refund not requested"
+    pushbytes ""
+    !=
+    bz refund_request_bool_false@4
+    intc_1 // 1
+
+refund_request_bool_merge@5:
+    // smart_contracts/hotelbooking/contract.py:737-739
+    // assert self.e13.value == UInt64(0) and (self.refund_id.value) != String(
+    //     ""
+    // ), "Refund not requested"
+    assert // Refund not requested
+    // smart_contracts/hotelbooking/contract.py:740
+    // assert Txn.sender == self.hotel.value, "Only hotel"
+    txn Sender
+    intc_0 // 0
+    bytec 11 // "hotel"
+    app_global_get_ex
+    assert // check self.hotel exists
+    ==
+    assert // Only hotel
+    // smart_contracts/hotelbooking/contract.py:742
+    // if self.payment_completed.value == UInt64(1):
+    intc_0 // 0
+    bytec 20 // "payment_completed"
+    app_global_get_ex
+    assert // check self.payment_completed exists
+    intc_1 // 1
+    ==
+    bz refund_request_after_if_else@8
+    // smart_contracts/hotelbooking/contract.py:743-747
+    // itxn.Payment(
+    //     amount=10000,
+    //     receiver=self.client.value,
+    //     fee=2500,
+    // ).submit()
+    itxn_begin
+    // smart_contracts/hotelbooking/contract.py:745
+    // receiver=self.client.value,
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    itxn_field Receiver
+    // smart_contracts/hotelbooking/contract.py:744
+    // amount=10000,
+    pushint 10000
+    itxn_field Amount
+    // smart_contracts/hotelbooking/contract.py:743
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // smart_contracts/hotelbooking/contract.py:746
+    // fee=2500,
+    pushint 2500
+    itxn_field Fee
+    // smart_contracts/hotelbooking/contract.py:743-747
+    // itxn.Payment(
+    //     amount=10000,
+    //     receiver=self.client.value,
+    //     fee=2500,
+    // ).submit()
+    itxn_submit
+    // smart_contracts/hotelbooking/contract.py:748
+    // self.payment_completed.value = UInt64(0)
+    bytec 20 // "payment_completed"
+    intc_0 // 0
+    app_global_put
+
+refund_request_after_if_else@8:
+    // smart_contracts/hotelbooking/contract.py:750
+    // log(Bytes(b"Hotel: refund_request"))
+    pushbytes 0x486f74656c3a20726566756e645f72657175657374
+    log
+    // smart_contracts/hotelbooking/contract.py:751
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:733
+    // @abimethod
+    intc_1 // 1
+    return
+
+refund_request_bool_false@4:
+    intc_0 // 0
+    b refund_request_bool_merge@5
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.reject_order[routing]() -> void:
+reject_order:
+    // smart_contracts/hotelbooking/contract.py:757
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:758
+    // assert self.e15.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 7 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    assert // Task not active
+    // smart_contracts/hotelbooking/contract.py:759
+    // assert Txn.sender == self.client.value, "Only client"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "client"
+    app_global_get_ex
+    assert // check self.client exists
+    ==
+    assert // Only client
+    // smart_contracts/hotelbooking/contract.py:761
+    // log(Bytes(b"Client: reject_order"))
+    pushbytes 0x436c69656e743a2072656a6563745f6f72646572
+    log
+    // smart_contracts/hotelbooking/contract.py:762
+    // self.execute()
+    callsub smart_contracts.hotelbooking.contract.HotelBooking.execute
+    pop
+    // smart_contracts/hotelbooking/contract.py:753-754
+    // # --- Reject Flow ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.unlock[routing]() -> void:
+unlock:
+    // smart_contracts/hotelbooking/contract.py:774
+    // assert Txn.sender == self.admin.value, "Only admin can unlock"
+    txn Sender
+    intc_0 // 0
+    bytec 23 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can unlock
+    // smart_contracts/hotelbooking/contract.py:775
+    // self.locked.value = UInt64(0)
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:777-778
+    // # added new variables.
+    // self.e14.value = UInt64(0)
+    bytec 6 // "e14"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:779
+    // self.refund_id.value = String("")
+    bytec 22 // "refund_id"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:780
+    // log(Bytes(b"Contract unlocked"))
+    pushbytes 0x436f6e747261637420756e6c6f636b6564
+    log
+    // smart_contracts/hotelbooking/contract.py:772
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.delete[routing]() -> void:
+delete:
+    // smart_contracts/hotelbooking/contract.py:784
+    // assert Txn.sender == self.admin.value, "Only admin can delete"
+    txn Sender
+    intc_0 // 0
+    bytec 23 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can delete
+    // smart_contracts/hotelbooking/contract.py:785
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:786
+    // log(Bytes(b"Contract deleted successfully"))
+    pushbytes 0x436f6e74726163742064656c65746564207375636365737366756c6c79
+    log
+    // smart_contracts/hotelbooking/contract.py:782
+    // @abimethod(allow_actions=["DeleteApplication"])
+    intc_1 // 1
+    return
+
+
+// smart_contracts.hotelbooking.contract.HotelBooking.execute() -> uint64:
+smart_contracts.hotelbooking.contract.HotelBooking.execute:
+    // smart_contracts/hotelbooking/contract.py:558
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/hotelbooking/contract.py:559
+    // executed = True
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_while_top@1:
+    // smart_contracts/hotelbooking/contract.py:560
+    // while executed:
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_while@3
+    // smart_contracts/hotelbooking/contract.py:446
+    // if self.e0.value > UInt64(0):
+    intc_0 // 0
+    bytec 12 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@9
+    // smart_contracts/hotelbooking/contract.py:447
+    // self.e0.value -= UInt64(1)
+    intc_0 // 0
+    bytec 12 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    intc_1 // 1
+    -
+    bytec 12 // "e0"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:448
+    // self.e1.value += UInt64(1)
+    intc_0 // 0
+    bytec_2 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    intc_1 // 1
+    +
+    bytec_2 // "e1"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:449
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.start_event@10:
+    // smart_contracts/hotelbooking/contract.py:538
+    // if self.start_event() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@12
+    // smart_contracts/hotelbooking/contract.py:539
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58:
+    // smart_contracts/hotelbooking/contract.py:562
+    // executed = rule_executed != UInt64(0)
+    intc_0 // 0
+    !=
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_while_top@1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@12:
+    // smart_contracts/hotelbooking/contract.py:455
+    // if self.e1.value > UInt64(0):
+    intc_0 // 0
+    bytec_2 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@14
+    // smart_contracts/hotelbooking/contract.py:456
+    // self.e1.value -= UInt64(1)
+    intc_0 // 0
+    bytec_2 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    intc_1 // 1
+    -
+    bytec_2 // "e1"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:457
+    // self.e2.value += UInt64(1)
+    intc_0 // 0
+    bytec 13 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    intc_1 // 1
+    +
+    bytec 13 // "e2"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:458
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor_start@15:
+    // smart_contracts/hotelbooking/contract.py:540
+    // if self.xor_start() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@17
+    // smart_contracts/hotelbooking/contract.py:541
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@17:
+    // smart_contracts/hotelbooking/contract.py:464
+    // if self.e4.value > UInt64(0):
+    intc_0 // 0
+    bytec_3 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@22
+    // smart_contracts/hotelbooking/contract.py:465
+    // self.e4.value -= UInt64(1)
+    intc_0 // 0
+    bytec_3 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    intc_1 // 1
+    -
+    bytec_3 // "e4"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:466
+    // if self.confirm_flag.value == UInt64(0):
+    intc_0 // 0
+    bytec 19 // "confirm_flag"
+    app_global_get_ex
+    assert // check self.confirm_flag exists
+    bnz smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@20
+    // smart_contracts/hotelbooking/contract.py:467
+    // self.e1.value += UInt64(1)
+    intc_0 // 0
+    bytec_2 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    intc_1 // 1
+    +
+    bytec_2 // "e1"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:468
+    // log(Bytes(b"XOR1: confirm=false -> loop back"))
+    pushbytes 0x584f52313a20636f6e6669726d3d66616c7365202d3e206c6f6f70206261636b
+    log
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@21:
+    // smart_contracts/hotelbooking/contract.py:472
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor1_accept_booking@23:
+    // smart_contracts/hotelbooking/contract.py:542
+    // if self.xor1_accept_booking() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@25
+    // smart_contracts/hotelbooking/contract.py:543
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@25:
+    // smart_contracts/hotelbooking/contract.py:478
+    // if self.e7.value > UInt64(0):
+    intc_0 // 0
+    bytec 8 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@30
+    // smart_contracts/hotelbooking/contract.py:479
+    // self.e7.value -= UInt64(1)
+    intc_0 // 0
+    bytec 8 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    intc_1 // 1
+    -
+    bytec 8 // "e7"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:480
+    // if self.confirm_flag.value == UInt64(0):
+    intc_0 // 0
+    bytec 19 // "confirm_flag"
+    app_global_get_ex
+    assert // check self.confirm_flag exists
+    bnz smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@28
+    // smart_contracts/hotelbooking/contract.py:481
+    // self.e15.value += UInt64(1)
+    intc_0 // 0
+    bytec 7 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    intc_1 // 1
+    +
+    bytec 7 // "e15"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:482
+    // log(Bytes(b"XOR2: confirm=false -> reject"))
+    pushbytes 0x584f52323a20636f6e6669726d3d66616c7365202d3e2072656a656374
+    log
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@29:
+    // smart_contracts/hotelbooking/contract.py:488
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor2_confirmation@31:
+    // smart_contracts/hotelbooking/contract.py:544
+    // if self.xor2_confirmation() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@33
+    // smart_contracts/hotelbooking/contract.py:545
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@33:
+    // smart_contracts/hotelbooking/contract.py:494
+    // if self.e9.value > UInt64(0) and self.e11.value > UInt64(0):
+    intc_0 // 0
+    bytec 4 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@36
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@36
+    // smart_contracts/hotelbooking/contract.py:495
+    // self.e9.value -= UInt64(1)
+    intc_0 // 0
+    bytec 4 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    intc_1 // 1
+    -
+    bytec 4 // "e9"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:496
+    // self.e11.value -= UInt64(1)
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    intc_1 // 1
+    -
+    bytec 5 // "e11"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:497
+    // self.e12.value += UInt64(1)
+    intc_0 // 0
+    bytec 9 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    intc_1 // 1
+    +
+    bytec 9 // "e12"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:498
+    // log(Bytes(b"Parallel join: both branches complete"))
+    pushbytes 0x506172616c6c656c206a6f696e3a20626f7468206272616e6368657320636f6d706c657465
+    log
+    // smart_contracts/hotelbooking/contract.py:499
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.parallel_join@37:
+    // smart_contracts/hotelbooking/contract.py:546
+    // if self.parallel_join() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@39
+    // smart_contracts/hotelbooking/contract.py:547
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@39:
+    // smart_contracts/hotelbooking/contract.py:505
+    // if self.e12.value > UInt64(0):
+    intc_0 // 0
+    bytec 9 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@44
+    // smart_contracts/hotelbooking/contract.py:506
+    // self.e12.value -= UInt64(1)
+    intc_0 // 0
+    bytec 9 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    intc_1 // 1
+    -
+    bytec 9 // "e12"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:507
+    // if self.cancel_flag.value == UInt64(1):
+    intc_0 // 0
+    bytec 21 // "cancel_flag"
+    app_global_get_ex
+    assert // check self.cancel_flag exists
+    intc_1 // 1
+    ==
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@42
+    // smart_contracts/hotelbooking/contract.py:508
+    // self.e13.value += UInt64(1)
+    intc_0 // 0
+    bytec 10 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    intc_1 // 1
+    +
+    bytec 10 // "e13"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:509
+    // log(Bytes(b"XOR3: cancel=true -> refund"))
+    pushbytes 0x584f52333a2063616e63656c3d74727565202d3e20726566756e64
+    log
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@43:
+    // smart_contracts/hotelbooking/contract.py:513
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor3_cancel@45:
+    // smart_contracts/hotelbooking/contract.py:548
+    // if self.xor3_cancel() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@47
+    // smart_contracts/hotelbooking/contract.py:549
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@47:
+    // smart_contracts/hotelbooking/contract.py:519
+    // if self.e14.value > UInt64(0):
+    intc_0 // 0
+    bytec 6 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@49
+    // smart_contracts/hotelbooking/contract.py:520
+    // self.e14.value -= UInt64(1)
+    intc_0 // 0
+    bytec 6 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    intc_1 // 1
+    -
+    bytec 6 // "e14"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:521
+    // log(Bytes(b"Process completed: success"))
+    pushbytes 0x50726f6365737320636f6d706c657465643a2073756363657373
+    log
+    // smart_contracts/hotelbooking/contract.py:522
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.end_success@50:
+    // smart_contracts/hotelbooking/contract.py:550
+    // if self.end_success() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@52
+    // smart_contracts/hotelbooking/contract.py:551
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@52:
+    // smart_contracts/hotelbooking/contract.py:528
+    // if self.e15.value > UInt64(0):
+    intc_0 // 0
+    bytec 7 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@54
+    // smart_contracts/hotelbooking/contract.py:529
+    // self.e15.value -= UInt64(1)
+    intc_0 // 0
+    bytec 7 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    intc_1 // 1
+    -
+    bytec 7 // "e15"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:530
+    // log(Bytes(b"Process completed: reject"))
+    pushbytes 0x50726f6365737320636f6d706c657465643a2072656a656374
+    log
+    // smart_contracts/hotelbooking/contract.py:531
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.end_reject@55:
+    // smart_contracts/hotelbooking/contract.py:552
+    // if self.end_reject() != UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@57
+    // smart_contracts/hotelbooking/contract.py:553
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@57:
+    // smart_contracts/hotelbooking/contract.py:554
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:561
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.execute_one_rule@58
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@54:
+    // smart_contracts/hotelbooking/contract.py:532
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:552
+    // if self.end_reject() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.end_reject@55
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@49:
+    // smart_contracts/hotelbooking/contract.py:523
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:550
+    // if self.end_success() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.end_success@50
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@42:
+    // smart_contracts/hotelbooking/contract.py:511
+    // self.e14.value += UInt64(1)
+    intc_0 // 0
+    bytec 6 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    intc_1 // 1
+    +
+    bytec 6 // "e14"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:512
+    // log(Bytes(b"XOR3: cancel=false -> success"))
+    pushbytes 0x584f52333a2063616e63656c3d66616c7365202d3e2073756363657373
+    log
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@43
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@44:
+    // smart_contracts/hotelbooking/contract.py:514
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:548
+    // if self.xor3_cancel() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor3_cancel@45
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@36:
+    // smart_contracts/hotelbooking/contract.py:500
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:546
+    // if self.parallel_join() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.parallel_join@37
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@28:
+    // smart_contracts/hotelbooking/contract.py:484-485
+    // # Parallel split
+    // self.e8.value += UInt64(1)
+    intc_0 // 0
+    bytec 17 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    intc_1 // 1
+    +
+    bytec 17 // "e8"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:486
+    // self.e10.value += UInt64(1)
+    intc_0 // 0
+    bytec 18 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    intc_1 // 1
+    +
+    bytec 18 // "e10"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:487
+    // log(Bytes(b"XOR2: confirm=true -> parallel split"))
+    pushbytes 0x584f52323a20636f6e6669726d3d74727565202d3e20706172616c6c656c2073706c6974
+    log
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@29
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@30:
+    // smart_contracts/hotelbooking/contract.py:489
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:544
+    // if self.xor2_confirmation() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor2_confirmation@31
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@20:
+    // smart_contracts/hotelbooking/contract.py:470
+    // self.e5.value += UInt64(1)
+    intc_0 // 0
+    bytec 15 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    intc_1 // 1
+    +
+    bytec 15 // "e5"
+    swap
+    app_global_put
+    // smart_contracts/hotelbooking/contract.py:471
+    // log(Bytes(b"XOR1: confirm=true -> continue"))
+    pushbytes 0x584f52313a20636f6e6669726d3d74727565202d3e20636f6e74696e7565
+    log
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@21
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@22:
+    // smart_contracts/hotelbooking/contract.py:473
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:542
+    // if self.xor1_accept_booking() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor1_accept_booking@23
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@14:
+    // smart_contracts/hotelbooking/contract.py:459
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:540
+    // if self.xor_start() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.xor_start@15
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@9:
+    // smart_contracts/hotelbooking/contract.py:450
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/hotelbooking/contract.py:538
+    // if self.start_event() != UInt64(0):
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_inlined_smart_contracts.hotelbooking.contract.HotelBooking.start_event@10
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_while@3:
+    // smart_contracts/hotelbooking/contract.py:565
+    // self.e0.value
+    intc_0 // 0
+    bytec 12 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    // smart_contracts/hotelbooking/contract.py:566
+    // + self.e1.value
+    intc_0 // 0
+    bytec_2 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    // smart_contracts/hotelbooking/contract.py:565-566
+    // self.e0.value
+    // + self.e1.value
+    +
+    // smart_contracts/hotelbooking/contract.py:567
+    // + self.e2.value
+    intc_0 // 0
+    bytec 13 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    // smart_contracts/hotelbooking/contract.py:565-567
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    +
+    // smart_contracts/hotelbooking/contract.py:568
+    // + self.e3.value
+    intc_0 // 0
+    bytec 14 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    // smart_contracts/hotelbooking/contract.py:565-568
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    +
+    // smart_contracts/hotelbooking/contract.py:569
+    // + self.e4.value
+    intc_0 // 0
+    bytec_3 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    // smart_contracts/hotelbooking/contract.py:565-569
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    +
+    // smart_contracts/hotelbooking/contract.py:570
+    // + self.e5.value
+    intc_0 // 0
+    bytec 15 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    // smart_contracts/hotelbooking/contract.py:565-570
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    +
+    // smart_contracts/hotelbooking/contract.py:571
+    // + self.e6.value
+    intc_0 // 0
+    bytec 16 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    // smart_contracts/hotelbooking/contract.py:565-571
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    +
+    // smart_contracts/hotelbooking/contract.py:572
+    // + self.e7.value
+    intc_0 // 0
+    bytec 8 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    // smart_contracts/hotelbooking/contract.py:565-572
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    +
+    // smart_contracts/hotelbooking/contract.py:573
+    // + self.e8.value
+    intc_0 // 0
+    bytec 17 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    // smart_contracts/hotelbooking/contract.py:565-573
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    +
+    // smart_contracts/hotelbooking/contract.py:574
+    // + self.e9.value
+    intc_0 // 0
+    bytec 4 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    // smart_contracts/hotelbooking/contract.py:565-574
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    +
+    // smart_contracts/hotelbooking/contract.py:575
+    // + self.e10.value
+    intc_0 // 0
+    bytec 18 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    // smart_contracts/hotelbooking/contract.py:565-575
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    +
+    // smart_contracts/hotelbooking/contract.py:576
+    // + self.e11.value
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    // smart_contracts/hotelbooking/contract.py:565-576
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    +
+    // smart_contracts/hotelbooking/contract.py:577
+    // + self.e12.value
+    intc_0 // 0
+    bytec 9 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    // smart_contracts/hotelbooking/contract.py:565-577
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    +
+    // smart_contracts/hotelbooking/contract.py:578
+    // + self.e13.value
+    intc_0 // 0
+    bytec 10 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    // smart_contracts/hotelbooking/contract.py:565-578
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    +
+    // smart_contracts/hotelbooking/contract.py:579
+    // + self.e14.value
+    intc_0 // 0
+    bytec 6 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    // smart_contracts/hotelbooking/contract.py:565-579
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    +
+    // smart_contracts/hotelbooking/contract.py:580
+    // + self.e15.value
+    intc_0 // 0
+    bytec 7 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    // smart_contracts/hotelbooking/contract.py:565-580
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    +
+    // smart_contracts/hotelbooking/contract.py:583
+    // if total_tokens > UInt64(0):
+    bz smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@5
+    // smart_contracts/hotelbooking/contract.py:584
+    // log(Bytes(b"The process instance is RUNNING"))
+    pushbytes 0x5468652070726f6365737320696e7374616e63652069732052554e4e494e47
+    log
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@6:
+    // smart_contracts/hotelbooking/contract.py:587
+    // return UInt64(1)
+    intc_1 // 1
+    retsub
+
+smart_contracts.hotelbooking.contract.HotelBooking.execute_else_body@5:
+    // smart_contracts/hotelbooking/contract.py:586
+    // log(Bytes(b"The process instance is COMPLETED"))
+    pushbytes 0x5468652070726f6365737320696e7374616e636520697320434f4d504c45544544
+    log
+    b smart_contracts.hotelbooking.contract.HotelBooking.execute_after_if_else@6

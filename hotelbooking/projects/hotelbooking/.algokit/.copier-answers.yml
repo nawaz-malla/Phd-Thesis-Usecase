@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.8.1
+_src_path: gh:algorandfoundation/algokit-python-template
+author_email: nawazmalla2@gmail.com
+author_name: nawaz-malla
+contract_name: hotelbooking
+deployment_language: python
+preset_name: starter
+project_name: hotelbooking
+
