@@ -1,6 +1,6 @@
-# Thesis Experiment: BikeRental & HotelBooking Projects
+# Thesis Experiment: BikeRental, HealthCare & HotelBooking Projects
 
-This repository contains the **Thesis Experimentation Projects** for my PhD use case. It combines two separate projects:
+This repository contains the **Thesis Experimentation on Validation** for my PhD use case. It combines three separate Use cases:
 
 - [BikeRental](./bikerental)
 - [HealthCare](./healthcare)  
