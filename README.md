@@ -2,7 +2,8 @@
 
 This repository contains the **Thesis Experimentation Projects** for my PhD use case. It combines two separate projects:
 
-- [BikeRental](./bikerental)  
+- [BikeRental](./bikerental)
+- [HealthCare](./healthcare)  
 - [HotelBooking](./hotelbooking)  
 
 Each project includes its **contracts**, **experiment scripts**, and **supporting files**. This combined repository is intended for thesis experimentation and demonstration.
