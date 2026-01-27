@@ -1,0 +1,1494 @@
+{
+  "eval-overrides": {
+    "allow-empty-signatures": true,
+    "allow-unnamed-resources": true,
+    "max-log-calls": 2048,
+    "max-log-size": 65536
+  },
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 59691858,
+  "txn-groups": [
+    {
+      "app-budget-added": 700,
+      "app-budget-consumed": 122,
+      "failed-at": [
+        0
+      ],
+      "failure-message": "transaction MMI75C6HQLFSVLGEHXZ7FGW3VJN5GXARHGML5BAQ7R6TNP24FPMA: account R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3JRN3D2M balance 14971000 below min 15474500 (0 assets)",
+      "txn-results": [
+        {
+          "app-budget-consumed": 122,
+          "exec-trace": {
+            "approval-program-hash": "TobIM1YcQ34b6qZKAavToF0Jc+aIrYWMygWeN9kspps=",
+            "approval-program-trace": [
+              {
+                "pc": 1
+              },
+              {
+                "pc": 7
+              },
+              {
+                "pc": 212,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 214,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 217,
+                "stack-additions": [
+                  {
+                    "bytes": "cGF0aWVudA==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 219,
+                "stack-additions": [
+                  {
+                    "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 253,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "cGF0aWVudA==",
+                    "new-value": {
+                      "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY=",
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 254,
+                "stack-additions": [
+                  {
+                    "bytes": "cmFkaW9sb2d5",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 256,
+                "stack-additions": [
+                  {
+                    "bytes": "M83h0cNJYcnCZBLEjfksCp13Kx3x8ybDz4TXNyOXLY8=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 290,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "cmFkaW9sb2d5",
+                    "new-value": {
+                      "bytes": "M83h0cNJYcnCZBLEjfksCp13Kx3x8ybDz4TXNyOXLY8=",
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 291,
+                "stack-additions": [
+                  {
+                    "bytes": "d2FyZA==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 293,
+                "stack-additions": [
+                  {
+                    "bytes": "77em/hg2hrpSQx61/FCzcqPfNrT6j3AukJ9JSnNISWs=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 327,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "d2FyZA==",
+                    "new-value": {
+                      "bytes": "77em/hg2hrpSQx61/FCzcqPfNrT6j3AukJ9JSnNISWs=",
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 328,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 330,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 331,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTA=",
+                    "new-value": {
+                      "type": 2,
+                      "uint": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 332,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTE=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 333,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 334,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTE=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 335,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTI=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 336,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 337,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTI=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 338,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTM=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 340,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 341,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTM=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 342,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTQ=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 344,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 345,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTQ=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 346,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTU=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 348,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 349,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTU=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 350,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTY=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 352,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 353,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTY=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 354,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTc=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 356,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 357,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTc=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 358,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTg=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 360,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 361,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTg=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 362,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTk=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 364,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 365,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTk=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 366,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTEw",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 368,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 369,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTEw",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 370,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTEx",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 375,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 376,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTEx",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 377,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTEy",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 382,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 383,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTEy",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 384,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTEz",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 389,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 390,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTEz",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 391,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTE0",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 396,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 397,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTE0",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 398,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTE1",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 403,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 404,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTE1",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 405,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTE2",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 410,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 411,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTE2",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 412,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTE3",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 417,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 418,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTE3",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 419,
+                "stack-additions": [
+                  {
+                    "bytes": "bG9ja2Vk",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 420,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 421,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "bG9ja2Vk",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 422,
+                "stack-additions": [
+                  {
+                    "bytes": "bWVkaWNhbF9wcmVzY3JpcHRpb24=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 424,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 425,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "bWVkaWNhbF9wcmVzY3JpcHRpb24=",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 426,
+                "stack-additions": [
+                  {
+                    "bytes": "cmVxdWVzdF9pZA==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 428,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 429,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "cmVxdWVzdF9pZA==",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 430,
+                "stack-additions": [
+                  {
+                    "bytes": "YWNjZXB0ZWQ=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 432,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 433,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "YWNjZXB0ZWQ=",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 434,
+                "stack-additions": [
+                  {
+                    "bytes": "YXBwb2ludG1lbnRfZGF0ZQ==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 436,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 437,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "YXBwb2ludG1lbnRfZGF0ZQ==",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 438,
+                "stack-additions": [
+                  {
+                    "bytes": "YXBwb2ludG1lbnRfaWQ=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 440,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 441,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "YXBwb2ludG1lbnRfaWQ=",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 442,
+                "stack-additions": [
+                  {
+                    "bytes": "cmVnaXN0cmF0aW9uX2NvbmZpcm1lZA==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 444,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 445,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "cmVnaXN0cmF0aW9uX2NvbmZpcm1lZA==",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 446,
+                "stack-additions": [
+                  {
+                    "bytes": "dGlja2V0X2lk",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 448,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 449,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "dGlja2V0X2lk",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 450,
+                "stack-additions": [
+                  {
+                    "bytes": "YW5hbHlzaXNfcmVwb3J0",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 452,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 453,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "YW5hbHlzaXNfcmVwb3J0",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 454,
+                "stack-additions": [
+                  {
+                    "bytes": "cmVzdWx0X2lk",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 456,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 457,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "cmVzdWx0X2lk",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 458,
+                "stack-additions": [
+                  {
+                    "bytes": "Y2VydGlmaWNhdGlvbl9pZA==",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 476,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 477,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "Y2VydGlmaWNhdGlvbl9pZA==",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 478,
+                "stack-additions": [
+                  {
+                    "bytes": "dGVtcGVyYXR1cmU=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 491,
+                "stack-additions": [
+                  {
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 492,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "dGVtcGVyYXR1cmU=",
+                    "new-value": {
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 493,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 495,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 601,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 602,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 4
+                  }
+                ]
+              },
+              {
+                "pc": 604,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 606,
+                "stack-pop-count": 3
+              },
+              {
+                "pc": 659,
+                "stack-additions": [
+                  {
+                    "bytes": "YWRtaW4=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 661,
+                "stack-additions": [
+                  {
+                    "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 663,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "YWRtaW4=",
+                    "new-value": {
+                      "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY=",
+                      "type": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 664,
+                "stack-additions": [
+                  {
+                    "bytes": "ZTA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 666,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 667,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "ZTA=",
+                    "new-value": {
+                      "type": 2,
+                      "uint": 1
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 668,
+                "stack-additions": [
+                  {
+                    "bytes": "bG9ja2Vk",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 669,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 670,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "bG9ja2Vk",
+                    "new-value": {
+                      "type": 2
+                    },
+                    "operation": "w"
+                  }
+                ]
+              },
+              {
+                "pc": 671,
+                "stack-additions": [
+                  {
+                    "bytes": "UmFkaW9sb2d5QXBwb2ludG1lbnQgZGVwbG95ZWQ=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 702,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 703,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 704,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 1
+              }
+            ]
+          },
+          "txn-result": {
+            "application-index": 754021897,
+            "global-state-delta": [
+              {
+                "key": "ZTI=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTc=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTEw",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTEx",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "bG9ja2Vk",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "cmVxdWVzdF9pZA==",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "YXBwb2ludG1lbnRfZGF0ZQ==",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "YW5hbHlzaXNfcmVwb3J0",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "YXBwb2ludG1lbnRfaWQ=",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "d2FyZA==",
+                "value": {
+                  "action": 1,
+                  "bytes": "77em/hg2hrpSQx61/FCzcqPfNrT6j3AukJ9JSnNISWs="
+                }
+              },
+              {
+                "key": "ZTE0",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "YWNjZXB0ZWQ=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "cmVzdWx0X2lk",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "Y2VydGlmaWNhdGlvbl9pZA==",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "dGVtcGVyYXR1cmU=",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "ZTE=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTE1",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "dGlja2V0X2lk",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "cmFkaW9sb2d5",
+                "value": {
+                  "action": 1,
+                  "bytes": "M83h0cNJYcnCZBLEjfksCp13Kx3x8ybDz4TXNyOXLY8="
+                }
+              },
+              {
+                "key": "ZTY=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTk=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTE3",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "bWVkaWNhbF9wcmVzY3JpcHRpb24=",
+                "value": {
+                  "action": 1
+                }
+              },
+              {
+                "key": "cmVnaXN0cmF0aW9uX2NvbmZpcm1lZA==",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTQ=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "YWRtaW4=",
+                "value": {
+                  "action": 1,
+                  "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY="
+                }
+              },
+              {
+                "key": "cGF0aWVudA==",
+                "value": {
+                  "action": 1,
+                  "bytes": "j+P2B5fwxb2G4I9coM4sCtTvJMOchBIc/dbnq5mCLbY="
+                }
+              },
+              {
+                "key": "ZTA=",
+                "value": {
+                  "action": 2,
+                  "uint": 1
+                }
+              },
+              {
+                "key": "ZTM=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTU=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTEy",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTg=",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTEz",
+                "value": {
+                  "action": 2
+                }
+              },
+              {
+                "key": "ZTE2",
+                "value": {
+                  "action": 2
+                }
+              }
+            ],
+            "logs": [
+              "UmFkaW9sb2d5QXBwb2ludG1lbnQgZGVwbG95ZWQ="
+            ],
+            "pool-error": "",
+            "txn": {
+              "sig": "1TIHN9pMDB7bicD5TxKoUjyqYpYzE4CKFpsn9lO8OTe+c9G6Bdxp+XSBYr4vvXfAPssh9teuNOZtNs86pgU1Cw==",
+              "txn": {
+                "apap": "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",
+                "apep": 1,
+                "apgs": {
+                  "nbs": 13,
+                  "nui": 21
+                },
+                "apsu": "C4EBQw==",
+                "fee": 1000,
+                "fv": 59691858,
+                "gen": "testnet-v1.0",
+                "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+                "lv": 59692858,
+                "note": "QUxHT0tJVF9ERVBMT1lFUjpqeyJuYW1lIjogImhlYWx0aGNhcmUiLCAidmVyc2lvbiI6ICIxLjAifQ==",
+                "snd": "R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3JRN3D2M",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}
