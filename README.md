@@ -26,7 +26,7 @@ Each project includes its **contracts**, **experiment scripts**, and **supportin
 
 ## Overview
 
-This repository demonstrates a thesis use case combining two decentralized application projects: **BikeRental** and **HotelBooking**. Both projects involve smart contract development, testing, and deployment for experimentation purposes.
+This repository demonstrates a thesis use case combining two decentralized application projects: **BikeRental** , **HealthCare** and **HotelBooking**. Both projects involve smart contract development, testing, and deployment for experimentation purposes.
 
 ---
 
