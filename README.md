@@ -13,7 +13,8 @@ Each project includes its **contracts**, **experiment scripts**, and **supportin
 
 1. [Overview](#overview)  
 2. [Projects](#projects)  
-   - [BikeRental](#bikerental)  
+   - [BikeRental](#bikerental)
+   - [HealthCare](#healthcare) 
    - [HotelBooking](#hotelbooking)  
 3. [Contracts](#contracts)  
 4. [Setup & Installation](#setup--installation)  
@@ -36,6 +37,12 @@ This repository demonstrates a thesis use case combining two decentralized appli
 - Contains smart contracts, deployment scripts, and a README file with detailed instructions.
 - Experimentation includes rental operations, contract testing, and interaction simulation.
 
+
+### HealthCare
+- Location: `healthcare/`
+- Contains smart contracts, deployment scripts, and a README file with detailed instructions.
+- Experimentation includes xray operations, appointments, and interaction simulation.
+
 ### HotelBooking
 - Location: `hotelbooking/`
 - Contains smart contracts, deployment scripts, and a README file with detailed instructions.
@@ -46,9 +53,10 @@ This repository demonstrates a thesis use case combining two decentralized appli
 
 ## Contracts
 
-Both projects include smart contracts written in Python/Algorand-compatible formats.  
+All projects include smart contracts written in Python/Algorand-compatible formats.  
 
-- **BikeRental Contracts**: `bikerental/projects/bikerental/smart_contracts/`  
+- **BikeRental Contracts**: `bikerental/projects/bikerental/smart_contracts/bikerental`
+- **HealthCare Contracts**: `xray-exam/projects/xray-exam/smart_contracts/healthcare`
 - **HotelBooking Contracts**: `hotelbooking/projects/hotelbooking/smart_contracts/hotelbooking/`  
 
 **HotelBooking** has two versions of contracts:
