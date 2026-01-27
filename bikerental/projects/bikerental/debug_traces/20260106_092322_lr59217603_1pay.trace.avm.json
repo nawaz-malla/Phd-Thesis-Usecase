@@ -1,0 +1,46 @@
+{
+  "eval-overrides": {
+    "allow-empty-signatures": true,
+    "allow-unnamed-resources": true,
+    "max-log-calls": 2048,
+    "max-log-size": 65536
+  },
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 59217603,
+  "txn-groups": [
+    {
+      "failed-at": [
+        0
+      ],
+      "failure-message": "transaction WQGNHFKPZ5KWMJ57UXKHLO34INCVKUSY4BJCFU4XZZRU5VNTLNEQ: account Q2N2HEE4NOMM46NTHDET4PEA36EGCWDFHHBKDAJJ4Z4WMDJOQYZXPBKDZI balance 1989998 below min 2875000 (0 assets)",
+      "txn-results": [
+        {
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "sig": "P/WP65BalqNSN/4IOUyg+rH3fRGdaA3qc456I8FCr73qxKw3ns4JYYqTHQEE+50/i5L0UBw5uJM6o1iapFJQCg==",
+              "txn": {
+                "amt": 1000000,
+                "fee": 1000,
+                "fv": 59217603,
+                "gen": "testnet-v1.0",
+                "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+                "lv": 59218603,
+                "rcv": "IOWIHGFN3OFZ2SDAWLGHQPS3JYJC2TMPJZ7TUJONI6BQTMBKS62HIO34KY",
+                "snd": "Q2N2HEE4NOMM46NTHDET4PEA36EGCWDFHHBKDAJJ4Z4WMDJOQYZXPBKDZI",
+                "type": "pay"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

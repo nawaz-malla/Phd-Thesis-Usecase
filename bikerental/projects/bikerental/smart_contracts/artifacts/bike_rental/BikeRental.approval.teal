@@ -1,0 +1,2806 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 2 8 1000
+    bytecblock "locked" "bike_center" "customer" "e23" "e2" "e11" "e20" "e4" "e6" "e7" "e10" "e16" "e18" "e19" "e0" "e1" "e3" "e5" "e8" "e9" "e12" "e13" "e14" "e15" "e17" "e21" "e22" "admin" "is_available" "bike_cost" "insurance_requested" "insurance_cost" "bike_id" "refund_requested" "refund_amount" "insurer" "bike_type" "insurance_data" "voucher_data" "damage_description" "feedback_data" "voucher_id" "credits_amount" "receipt_data"
+    txn ApplicationID
+    bnz main_after_if_else@2
+    // smart_contracts/bike_rental/contract.py:18-19
+    // # --- Participants ---
+    // self.customer = GlobalState(
+    bytec_2 // "customer"
+    // smart_contracts/bike_rental/contract.py:20
+    // Account("GPG6DUODJFQ4TQTECLCI36JMBKOXOKY56HZSNQ6PQTLTOI4XFWHSNPK4LQ")
+    pushbytes base32(GPG6DUODJFQ4TQTECLCI36JMBKOXOKY56HZSNQ6PQTLTOI4XFWHQ) // addr GPG6DUODJFQ4TQTECLCI36JMBKOXOKY56HZSNQ6PQTLTOI4XFWHSNPK4LQ
+    // smart_contracts/bike_rental/contract.py:18-21
+    // # --- Participants ---
+    // self.customer = GlobalState(
+    //     Account("GPG6DUODJFQ4TQTECLCI36JMBKOXOKY56HZSNQ6PQTLTOI4XFWHSNPK4LQ")
+    // )
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:22
+    // self.bike_center = GlobalState(
+    bytec_1 // "bike_center"
+    // smart_contracts/bike_rental/contract.py:23
+    // Account("R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3JRN3D2M")
+    pushbytes base32(R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3A) // addr R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3JRN3D2M
+    // smart_contracts/bike_rental/contract.py:22-24
+    // self.bike_center = GlobalState(
+    //     Account("R7R7MB4X6DC33BXAR5OKBTRMBLKO6JGDTSCBEHH523T2XGMCFW3JRN3D2M")
+    // )
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:25
+    // self.insurer = GlobalState(
+    bytec 35 // "insurer"
+    // smart_contracts/bike_rental/contract.py:26
+    // Account("5632N7QYG2DLUUSDD227YUFTOKR56NVU7KHXALUQT5EUU42IJFVSW6DNHU")
+    pushbytes base32(5632N7QYG2DLUUSDD227YUFTOKR56NVU7KHXALUQT5EUU42IJFVQ) // addr 5632N7QYG2DLUUSDD227YUFTOKR56NVU7KHXALUQT5EUU42IJFVSW6DNHU
+    // smart_contracts/bike_rental/contract.py:25-27
+    // self.insurer = GlobalState(
+    //     Account("5632N7QYG2DLUUSDD227YUFTOKR56NVU7KHXALUQT5EUU42IJFVSW6DNHU")
+    // )
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:32-33
+    // # --- Process Control Edges ---
+    // self.e0 = GlobalState(UInt64(1))  # start event
+    bytec 14 // "e0"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:34
+    // self.e1 = GlobalState(UInt64(0))  # after request_availability
+    bytec 15 // "e1"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:35
+    // self.e2 = GlobalState(UInt64(0))  # after give_availability
+    bytec 4 // "e2"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:36
+    // self.e3 = GlobalState(UInt64(0))  # isAvailable==true path
+    bytec 16 // "e3"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:37
+    // self.e4 = GlobalState(UInt64(0))  # isAvailable==false path (end reject)
+    bytec 7 // "e4"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:38
+    // self.e5 = GlobalState(UInt64(0))  # after request_insurance
+    bytec 17 // "e5"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:39
+    // self.e6 = GlobalState(UInt64(0))  # after estimate_insurance_cost
+    bytec 8 // "e6"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:40
+    // self.e7 = GlobalState(UInt64(0))  # insuranceReq==false path
+    bytec 9 // "e7"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:41
+    // self.e8 = GlobalState(UInt64(0))  # insuranceReq==true path
+    bytec 18 // "e8"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:42
+    // self.e9 = GlobalState(UInt64(0))  # after pay_insurance
+    bytec 19 // "e9"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:43
+    // self.e10 = GlobalState(UInt64(0))  # after insurance confirmation from insurer
+    bytec 10 // "e10"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:44
+    // self.e11 = GlobalState(UInt64(0))  # after XOR join (insurance paths)
+    bytec 5 // "e11"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:45
+    // self.e12 = GlobalState(UInt64(0))  # after pay_bike
+    bytec 20 // "e12"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:46
+    // self.e13 = GlobalState(UInt64(0))  # after voucher
+    bytec 21 // "e13"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:47
+    // self.e14 = GlobalState(UInt64(0))  # after give_bike
+    bytec 22 // "e14"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:48
+    // self.e15 = GlobalState(UInt64(0))  # after report_damage
+    bytec 23 // "e15"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:49
+    // self.e16 = GlobalState(UInt64(0))  # after damage_evaluation
+    bytec 11 // "e16"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:50
+    // self.e17 = GlobalState(UInt64(0))  # ask==true path (refund requested)
+    bytec 24 // "e17"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:51
+    // self.e18 = GlobalState(UInt64(0))  # ask==false path (no refund)
+    bytec 12 // "e18"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:52
+    // self.e19 = GlobalState(UInt64(0))  # after damage_refund payment
+    bytec 13 // "e19"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:53
+    // self.e20 = GlobalState(UInt64(0))  # after XOR join (refund paths)
+    bytec 6 // "e20"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:54
+    // self.e21 = GlobalState(UInt64(0))  # after give_feedback
+    bytec 25 // "e21"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:56-57
+    // # Reserved for future updates
+    // self.e22 = GlobalState(UInt64(0))
+    bytec 26 // "e22"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:58
+    // self.e23 = GlobalState(UInt64(0))
+    bytec_3 // "e23"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:60
+    // self.locked = GlobalState(UInt64(0))
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:62-63
+    // # --- Data Objects ---
+    // self.bike_type = GlobalState(String(""))
+    bytec 36 // "bike_type"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:64
+    // self.is_available = GlobalState(UInt64(0))
+    bytec 28 // "is_available"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:65
+    // self.bike_cost = GlobalState(UInt64(0))
+    bytec 29 // "bike_cost"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:66
+    // self.insurance_requested = GlobalState(UInt64(0))
+    bytec 30 // "insurance_requested"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:67
+    // self.insurance_cost = GlobalState(UInt64(0))
+    bytec 31 // "insurance_cost"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:68
+    // self.insurance_data = GlobalState(String(""))
+    bytec 37 // "insurance_data"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:69
+    // self.voucher_data = GlobalState(String(""))
+    bytec 38 // "voucher_data"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:70
+    // self.bike_id = GlobalState(String(""))
+    bytec 32 // "bike_id"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:71
+    // self.damage_description = GlobalState(String(""))
+    bytec 39 // "damage_description"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:72
+    // self.refund_requested = GlobalState(UInt64(0))
+    bytec 33 // "refund_requested"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:73
+    // self.refund_amount = GlobalState(UInt64(0))
+    bytec 34 // "refund_amount"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:74
+    // self.feedback_data = GlobalState(String(""))
+    bytec 40 // "feedback_data"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:75
+    // self.voucher_id = GlobalState(String(""))
+    bytec 41 // "voucher_id"
+    pushbytes ""
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:77-78
+    // # Reserved for future data objects
+    // self.credits_amount = GlobalState(UInt64(0))
+    bytec 42 // "credits_amount"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:79
+    // self.receipt_data = GlobalState(String(""))
+    bytec 43 // "receipt_data"
+    pushbytes ""
+    app_global_put
+
+main_after_if_else@2:
+    // smart_contracts/bike_rental/contract.py:16
+    // class BikeRental(ARC4Contract):
+    txn NumAppArgs
+    bz main_bare_routing@29
+    pushbytes 0x24378d3c // method "delete()void"
+    txna ApplicationArgs 0
+    match main_delete_route@5
+
+main_switch_case_next@6:
+    // smart_contracts/bike_rental/contract.py:16
+    // class BikeRental(ARC4Contract):
+    txn OnCompletion
+    !
+    assert // OnCompletion must be NoOp
+    txn ApplicationID
+    assert
+    pushbytess 0xccf37f8b 0x3167d1dc 0xdcbc4ccd 0xbdf2c787 0x7261e895 0xd0c688a3 0x0d2cd24d 0x6be989cb 0x943b1a66 0x7392db0b 0x6ffffff2 0x8cbf4871 0x67c53ea1 0x517b5049 0x7f7df2e5 0x27cd5de5 0xa1478eeb 0x702d613f // method "execute()uint64", method "request_availability(string)void", method "give_availability(uint64,uint64)void", method "request_insurance(uint64)void", method "estimate_insurance_cost(uint64)void", method "pay_insurance()void", method "confirm_insurance(string)void", method "pay_bike()void", method "provide_voucher(string)void", method "give_bike(string)void", method "report_damage(string)void", method "damage_evaluation(uint64,uint64)void", method "damage_refund()void", method "give_feedback(string)void", method "give_bike_back(string,string)void", method "give_credits(uint64)void", method "give_receipt(string)void", method "unlock()void"
+    txna ApplicationArgs 0
+    match execute request_availability give_availability request_insurance estimate_insurance_cost pay_insurance confirm_insurance pay_bike provide_voucher give_bike report_damage damage_evaluation damage_refund give_feedback give_bike_back give_credits give_receipt unlock
+    err
+
+main_delete_route@5:
+    // smart_contracts/bike_rental/contract.py:494
+    // @abimethod(allow_actions=["DeleteApplication"])
+    txn OnCompletion
+    pushint 5 // DeleteApplication
+    ==
+    txn ApplicationID
+    &&
+    assert // OnCompletion must be DeleteApplication && can only call when not creating
+    b delete
+
+main_bare_routing@29:
+    // smart_contracts/bike_rental/contract.py:16
+    // class BikeRental(ARC4Contract):
+    intc_0 // NoOp
+    pushint 4 // UpdateApplication
+    txn OnCompletion
+    match main_create@30 main_update@31
+    err
+
+main_update@31:
+    // smart_contracts/bike_rental/contract.py:482
+    // @baremethod(allow_actions=["UpdateApplication"])
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/bike_rental/contract.py:484
+    // assert Txn.sender == self.admin.value, "Only admin can update"
+    txn Sender
+    intc_0 // 0
+    bytec 27 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can update
+    // smart_contracts/bike_rental/contract.py:485
+    // self.locked.value = UInt64(1)
+    bytec_0 // "locked"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:486
+    // log(Bytes(b"Contract locked for update"))
+    pushbytes 0x436f6e7472616374206c6f636b656420666f7220757064617465
+    log
+    // smart_contracts/bike_rental/contract.py:482
+    // @baremethod(allow_actions=["UpdateApplication"])
+    intc_1 // 1
+    return
+
+main_create@30:
+    // smart_contracts/bike_rental/contract.py:83
+    // self.admin.value = Txn.sender
+    bytec 27 // "admin"
+    txn Sender
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:84
+    // self.e0.value = UInt64(1)
+    bytec 14 // "e0"
+    intc_1 // 1
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:85
+    // self.locked.value = UInt64(0)
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:86
+    // log(Bytes(b"BikeRental deployed"))
+    pushbytes 0x42696b6552656e74616c206465706c6f796564
+    log
+    // smart_contracts/bike_rental/contract.py:81
+    // @baremethod(create="allow")
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.execute[routing]() -> void:
+execute:
+    // smart_contracts/bike_rental/contract.py:211
+    // @abimethod
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    itob
+    pushbytes 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.request_availability[routing]() -> void:
+request_availability:
+    // smart_contracts/bike_rental/contract.py:254-255
+    // # --- Initial Flow: Availability Check ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:258
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:259
+    // assert self.e1.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 15 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:260
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:262
+    // self.e1.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 15 // "e1"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:263
+    // self.bike_type.value = bike_type
+    bytec 36 // "bike_type"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:264
+    // self.e2.value += UInt64(1)
+    intc_0 // 0
+    bytec 4 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    intc_1 // 1
+    +
+    bytec 4 // "e2"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:265
+    // log(Bytes(b"Customer: request_availability"))
+    pushbytes 0x437573746f6d65723a20726571756573745f617661696c6162696c697479
+    log
+    // smart_contracts/bike_rental/contract.py:254-255
+    // # --- Initial Flow: Availability Check ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_availability[routing]() -> void:
+give_availability:
+    // smart_contracts/bike_rental/contract.py:267
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    // smart_contracts/bike_rental/contract.py:270
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:271
+    // assert self.e2.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 4 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:272
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:274
+    // self.is_available.value = is_available
+    bytec 28 // "is_available"
+    uncover 2
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:275
+    // self.bike_cost.value = cost
+    bytec 29 // "bike_cost"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:276
+    // log(Bytes(b"BikeCenter: give_availability"))
+    pushbytes 0x42696b6543656e7465723a20676976655f617661696c6162696c697479
+    log
+    // smart_contracts/bike_rental/contract.py:277
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:267
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.request_insurance[routing]() -> void:
+request_insurance:
+    // smart_contracts/bike_rental/contract.py:279-280
+    // # --- Insurance Flow ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    // smart_contracts/bike_rental/contract.py:283
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:284
+    // assert self.e3.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 16 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:285
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:287
+    // self.e3.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 16 // "e3"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:288
+    // self.insurance_requested.value = insurance_req
+    bytec 30 // "insurance_requested"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:289
+    // self.e5.value += UInt64(1)
+    intc_0 // 0
+    bytec 17 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    intc_1 // 1
+    +
+    bytec 17 // "e5"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:290
+    // log(Bytes(b"Customer: request_insurance"))
+    pushbytes 0x437573746f6d65723a20726571756573745f696e737572616e6365
+    log
+    // smart_contracts/bike_rental/contract.py:279-280
+    // # --- Insurance Flow ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.estimate_insurance_cost[routing]() -> void:
+estimate_insurance_cost:
+    // smart_contracts/bike_rental/contract.py:292
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    // smart_contracts/bike_rental/contract.py:295
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:296
+    // assert self.e5.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 17 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:297
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:299
+    // self.e5.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 17 // "e5"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:300
+    // self.insurance_cost.value = insurance_cost
+    bytec 31 // "insurance_cost"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:301
+    // self.e6.value += UInt64(1)
+    intc_0 // 0
+    bytec 8 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    intc_1 // 1
+    +
+    bytec 8 // "e6"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:302
+    // log(Bytes(b"BikeCenter: estimate_insurance_cost"))
+    pushbytes 0x42696b6543656e7465723a20657374696d6174655f696e737572616e63655f636f7374
+    log
+    // smart_contracts/bike_rental/contract.py:303
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:292
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.pay_insurance[routing]() -> void:
+pay_insurance:
+    // smart_contracts/bike_rental/contract.py:308
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:309
+    // assert self.e8.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 18 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:310
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:312
+    // self.e8.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 18 // "e8"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:314-319
+    // # Payment to bike center for insurance
+    // itxn.Payment(
+    //     amount=self.insurance_cost.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_begin
+    // smart_contracts/bike_rental/contract.py:316
+    // amount=self.insurance_cost.value,
+    intc_0 // 0
+    bytec 31 // "insurance_cost"
+    app_global_get_ex
+    assert // check self.insurance_cost exists
+    // smart_contracts/bike_rental/contract.py:317
+    // receiver=self.bike_center.value,
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    itxn_field Receiver
+    itxn_field Amount
+    // smart_contracts/bike_rental/contract.py:314-315
+    // # Payment to bike center for insurance
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // smart_contracts/bike_rental/contract.py:318
+    // fee=1000,
+    intc 4 // 1000
+    itxn_field Fee
+    // smart_contracts/bike_rental/contract.py:314-319
+    // # Payment to bike center for insurance
+    // itxn.Payment(
+    //     amount=self.insurance_cost.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_submit
+    // smart_contracts/bike_rental/contract.py:321
+    // self.e9.value += UInt64(1)
+    intc_0 // 0
+    bytec 19 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    intc_1 // 1
+    +
+    bytec 19 // "e9"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:322
+    // log(Bytes(b"Customer: pay_insurance"))
+    pushbytes 0x437573746f6d65723a207061795f696e737572616e6365
+    log
+    // smart_contracts/bike_rental/contract.py:305
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.confirm_insurance[routing]() -> void:
+confirm_insurance:
+    // smart_contracts/bike_rental/contract.py:324
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:327
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:328
+    // assert self.e9.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 19 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:329
+    // assert Txn.sender == self.insurer.value, "Only insurer"
+    txn Sender
+    intc_0 // 0
+    bytec 35 // "insurer"
+    app_global_get_ex
+    assert // check self.insurer exists
+    ==
+    assert // Only insurer
+    // smart_contracts/bike_rental/contract.py:331
+    // self.e9.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 19 // "e9"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:332
+    // self.insurance_data.value = insurance_data
+    bytec 37 // "insurance_data"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:333
+    // self.e10.value += UInt64(1)
+    intc_0 // 0
+    bytec 10 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    intc_1 // 1
+    +
+    bytec 10 // "e10"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:334
+    // log(Bytes(b"Insurer: confirm_insurance"))
+    pushbytes 0x496e73757265723a20636f6e6669726d5f696e737572616e6365
+    log
+    // smart_contracts/bike_rental/contract.py:335
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:324
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.pay_bike[routing]() -> void:
+pay_bike:
+    // smart_contracts/bike_rental/contract.py:341
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:342
+    // assert self.e11.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:343
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:345
+    // self.e11.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 5 // "e11"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:347-352
+    // # Payment to bike center for bike rental
+    // itxn.Payment(
+    //     amount=self.bike_cost.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_begin
+    // smart_contracts/bike_rental/contract.py:349
+    // amount=self.bike_cost.value,
+    intc_0 // 0
+    bytec 29 // "bike_cost"
+    app_global_get_ex
+    assert // check self.bike_cost exists
+    // smart_contracts/bike_rental/contract.py:350
+    // receiver=self.bike_center.value,
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    itxn_field Receiver
+    itxn_field Amount
+    // smart_contracts/bike_rental/contract.py:347-348
+    // # Payment to bike center for bike rental
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // smart_contracts/bike_rental/contract.py:351
+    // fee=1000,
+    intc 4 // 1000
+    itxn_field Fee
+    // smart_contracts/bike_rental/contract.py:347-352
+    // # Payment to bike center for bike rental
+    // itxn.Payment(
+    //     amount=self.bike_cost.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_submit
+    // smart_contracts/bike_rental/contract.py:354
+    // self.e12.value += UInt64(1)
+    intc_0 // 0
+    bytec 20 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    intc_1 // 1
+    +
+    bytec 20 // "e12"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:355
+    // log(Bytes(b"Customer: pay_bike"))
+    pushbytes 0x437573746f6d65723a207061795f62696b65
+    log
+    // smart_contracts/bike_rental/contract.py:337-338
+    // # --- Payment and Bike Delivery Flow ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.provide_voucher[routing]() -> void:
+provide_voucher:
+    // smart_contracts/bike_rental/contract.py:357
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:360
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:361
+    // assert self.e12.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 20 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:362
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:364
+    // self.e12.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 20 // "e12"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:365
+    // self.voucher_data.value = voucher_data
+    bytec 38 // "voucher_data"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:366
+    // self.e13.value += UInt64(1)
+    intc_0 // 0
+    bytec 21 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    intc_1 // 1
+    +
+    bytec 21 // "e13"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:367
+    // log(Bytes(b"BikeCenter: provide_voucher"))
+    pushbytes 0x42696b6543656e7465723a2070726f766964655f766f7563686572
+    log
+    // smart_contracts/bike_rental/contract.py:357
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_bike[routing]() -> void:
+give_bike:
+    // smart_contracts/bike_rental/contract.py:369
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:372
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:373
+    // assert self.e13.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 21 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:374
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:376
+    // self.e13.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 21 // "e13"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:377
+    // self.bike_id.value = bike_id
+    bytec 32 // "bike_id"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:378
+    // self.e14.value += UInt64(1)
+    intc_0 // 0
+    bytec 22 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    intc_1 // 1
+    +
+    bytec 22 // "e14"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:379
+    // log(Bytes(b"BikeCenter: give_bike"))
+    pushbytes 0x42696b6543656e7465723a20676976655f62696b65
+    log
+    // smart_contracts/bike_rental/contract.py:369
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.report_damage[routing]() -> void:
+report_damage:
+    // smart_contracts/bike_rental/contract.py:381-382
+    // # --- Damage Reporting Flow ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:385
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:386
+    // assert self.e14.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 22 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:387
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:389
+    // self.e14.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 22 // "e14"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:390
+    // self.damage_description.value = description
+    bytec 39 // "damage_description"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:391
+    // self.e15.value += UInt64(1)
+    intc_0 // 0
+    bytec 23 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    intc_1 // 1
+    +
+    bytec 23 // "e15"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:392
+    // log(Bytes(b"Customer: report_damage"))
+    pushbytes 0x437573746f6d65723a207265706f72745f64616d616765
+    log
+    // smart_contracts/bike_rental/contract.py:381-382
+    // # --- Damage Reporting Flow ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.damage_evaluation[routing]() -> void:
+damage_evaluation:
+    // smart_contracts/bike_rental/contract.py:394
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    // smart_contracts/bike_rental/contract.py:397
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:398
+    // assert self.e15.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 23 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:399
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:401
+    // self.e15.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 23 // "e15"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:402
+    // self.refund_requested.value = ask_refund
+    bytec 33 // "refund_requested"
+    uncover 2
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:403
+    // self.refund_amount.value = amount
+    bytec 34 // "refund_amount"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:404
+    // self.e16.value += UInt64(1)
+    intc_0 // 0
+    bytec 11 // "e16"
+    app_global_get_ex
+    assert // check self.e16 exists
+    intc_1 // 1
+    +
+    bytec 11 // "e16"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:405
+    // log(Bytes(b"BikeCenter: damage_evaluation"))
+    pushbytes 0x42696b6543656e7465723a2064616d6167655f6576616c756174696f6e
+    log
+    // smart_contracts/bike_rental/contract.py:406
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:394
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.damage_refund[routing]() -> void:
+damage_refund:
+    // smart_contracts/bike_rental/contract.py:411
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:412
+    // assert self.e17.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 24 // "e17"
+    app_global_get_ex
+    assert // check self.e17 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:413
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:415
+    // self.e17.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 24 // "e17"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:417-422
+    // # Payment for damages
+    // itxn.Payment(
+    //     amount=self.refund_amount.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_begin
+    // smart_contracts/bike_rental/contract.py:419
+    // amount=self.refund_amount.value,
+    intc_0 // 0
+    bytec 34 // "refund_amount"
+    app_global_get_ex
+    assert // check self.refund_amount exists
+    // smart_contracts/bike_rental/contract.py:420
+    // receiver=self.bike_center.value,
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    itxn_field Receiver
+    itxn_field Amount
+    // smart_contracts/bike_rental/contract.py:417-418
+    // # Payment for damages
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // smart_contracts/bike_rental/contract.py:421
+    // fee=1000,
+    intc 4 // 1000
+    itxn_field Fee
+    // smart_contracts/bike_rental/contract.py:417-422
+    // # Payment for damages
+    // itxn.Payment(
+    //     amount=self.refund_amount.value,
+    //     receiver=self.bike_center.value,
+    //     fee=1000,
+    // ).submit()
+    itxn_submit
+    // smart_contracts/bike_rental/contract.py:424
+    // self.e19.value += UInt64(1)
+    intc_0 // 0
+    bytec 13 // "e19"
+    app_global_get_ex
+    assert // check self.e19 exists
+    intc_1 // 1
+    +
+    bytec 13 // "e19"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:425
+    // log(Bytes(b"Customer: damage_refund"))
+    pushbytes 0x437573746f6d65723a2064616d6167655f726566756e64
+    log
+    // smart_contracts/bike_rental/contract.py:426
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:408
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_feedback[routing]() -> void:
+give_feedback:
+    // smart_contracts/bike_rental/contract.py:428-429
+    // # --- Final Flow: Feedback and Return ---
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:432
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:433
+    // assert self.e20.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 6 // "e20"
+    app_global_get_ex
+    assert // check self.e20 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:434
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:436
+    // self.e20.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 6 // "e20"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:437
+    // self.feedback_data.value = feedback
+    bytec 40 // "feedback_data"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:438
+    // self.e21.value += UInt64(1)
+    intc_0 // 0
+    bytec 25 // "e21"
+    app_global_get_ex
+    assert // check self.e21 exists
+    intc_1 // 1
+    +
+    bytec 25 // "e21"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:439
+    // log(Bytes(b"Customer: give_feedback"))
+    pushbytes 0x437573746f6d65723a20676976655f666565646261636b
+    log
+    // smart_contracts/bike_rental/contract.py:428-429
+    // # --- Final Flow: Feedback and Return ---
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_bike_back[routing]() -> void:
+give_bike_back:
+    // smart_contracts/bike_rental/contract.py:441
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    txna ApplicationArgs 2
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:444
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:445
+    // assert self.e21.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 25 // "e21"
+    app_global_get_ex
+    assert // check self.e21 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:446
+    // assert Txn.sender == self.customer.value, "Only customer"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // "customer"
+    app_global_get_ex
+    assert // check self.customer exists
+    ==
+    assert // Only customer
+    // smart_contracts/bike_rental/contract.py:448
+    // self.e21.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 25 // "e21"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:449
+    // self.voucher_id.value = voucher_id
+    bytec 41 // "voucher_id"
+    uncover 2
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:450-451
+    // # Verify bike_id matches
+    // assert bike_id == self.bike_id.value, "Bike ID mismatch"
+    intc_0 // 0
+    bytec 32 // "bike_id"
+    app_global_get_ex
+    assert // check self.bike_id exists
+    ==
+    assert // Bike ID mismatch
+    // smart_contracts/bike_rental/contract.py:453
+    // self.e22.value += UInt64(1)
+    intc_0 // 0
+    bytec 26 // "e22"
+    app_global_get_ex
+    assert // check self.e22 exists
+    intc_1 // 1
+    +
+    bytec 26 // "e22"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:454
+    // log(Bytes(b"Customer: give_bike_back"))
+    pushbytes 0x437573746f6d65723a20676976655f62696b655f6261636b
+    log
+    // smart_contracts/bike_rental/contract.py:441
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_credits[routing]() -> void:
+give_credits:
+    // smart_contracts/bike_rental/contract.py:456
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for uint64
+    btoi
+    // smart_contracts/bike_rental/contract.py:459
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:460
+    // assert self.e22.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec 26 // "e22"
+    app_global_get_ex
+    assert // check self.e22 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:461
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:463
+    // self.e22.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec 26 // "e22"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:464
+    // self.credits_amount.value = credits
+    bytec 42 // "credits_amount"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:465
+    // self.e23.value += UInt64(1)
+    intc_0 // 0
+    bytec_3 // "e23"
+    app_global_get_ex
+    assert // check self.e23 exists
+    intc_1 // 1
+    +
+    bytec_3 // "e23"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:466
+    // log(Bytes(b"BikeCenter: give_credits"))
+    pushbytes 0x42696b6543656e7465723a20676976655f63726564697473
+    log
+    // smart_contracts/bike_rental/contract.py:456
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.give_receipt[routing]() -> void:
+give_receipt:
+    // smart_contracts/bike_rental/contract.py:468
+    // @abimethod
+    txna ApplicationArgs 1
+    dup
+    intc_0 // 0
+    extract_uint16
+    intc_2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for (len+utf8[])
+    extract 2 0
+    // smart_contracts/bike_rental/contract.py:471
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:472
+    // assert self.e23.value > UInt64(0), "Task not active"
+    intc_0 // 0
+    bytec_3 // "e23"
+    app_global_get_ex
+    assert // check self.e23 exists
+    dup
+    assert // Task not active
+    // smart_contracts/bike_rental/contract.py:473
+    // assert Txn.sender == self.bike_center.value, "Only bike center"
+    txn Sender
+    intc_0 // 0
+    bytec_1 // "bike_center"
+    app_global_get_ex
+    assert // check self.bike_center exists
+    ==
+    assert // Only bike center
+    // smart_contracts/bike_rental/contract.py:475
+    // self.e23.value -= UInt64(1)
+    intc_1 // 1
+    -
+    bytec_3 // "e23"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:476
+    // self.receipt_data.value = data
+    bytec 43 // "receipt_data"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:477
+    // log(Bytes(b"BikeCenter: give_receipt"))
+    pushbytes 0x42696b6543656e7465723a20676976655f72656365697074
+    log
+    // smart_contracts/bike_rental/contract.py:478
+    // self.execute()
+    callsub smart_contracts.bike_rental.contract.BikeRental.execute
+    pop
+    // smart_contracts/bike_rental/contract.py:468
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.unlock[routing]() -> void:
+unlock:
+    // smart_contracts/bike_rental/contract.py:490
+    // assert Txn.sender == self.admin.value, "Only admin can unlock"
+    txn Sender
+    intc_0 // 0
+    bytec 27 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can unlock
+    // smart_contracts/bike_rental/contract.py:491
+    // self.locked.value = UInt64(0)
+    bytec_0 // "locked"
+    intc_0 // 0
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:492
+    // log(Bytes(b"Contract unlocked"))
+    pushbytes 0x436f6e747261637420756e6c6f636b6564
+    log
+    // smart_contracts/bike_rental/contract.py:488
+    // @abimethod
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.delete[routing]() -> void:
+delete:
+    // smart_contracts/bike_rental/contract.py:496
+    // assert Txn.sender == self.admin.value, "Only admin can delete"
+    txn Sender
+    intc_0 // 0
+    bytec 27 // "admin"
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Only admin can delete
+    // smart_contracts/bike_rental/contract.py:497
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:498
+    // log(Bytes(b"Contract deleted successfully"))
+    pushbytes 0x436f6e74726163742064656c65746564207375636365737366756c6c79
+    log
+    // smart_contracts/bike_rental/contract.py:494
+    // @abimethod(allow_actions=["DeleteApplication"])
+    intc_1 // 1
+    return
+
+
+// smart_contracts.bike_rental.contract.BikeRental.execute() -> uint64:
+smart_contracts.bike_rental.contract.BikeRental.execute:
+    // smart_contracts/bike_rental/contract.py:213
+    // assert self.locked.value == UInt64(0), "Contract is locked"
+    intc_0 // 0
+    bytec_0 // "locked"
+    app_global_get_ex
+    assert // check self.locked exists
+    !
+    assert // Contract is locked
+    // smart_contracts/bike_rental/contract.py:214
+    // executed = True
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_while_top@1:
+    // smart_contracts/bike_rental/contract.py:215
+    // while executed:
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_while@3
+    // smart_contracts/bike_rental/contract.py:93
+    // if self.e0.value > UInt64(0):
+    intc_0 // 0
+    bytec 14 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@9
+    // smart_contracts/bike_rental/contract.py:94
+    // self.e0.value -= UInt64(1)
+    intc_0 // 0
+    bytec 14 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    intc_1 // 1
+    -
+    bytec 14 // "e0"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:95
+    // self.e1.value += UInt64(1)
+    intc_0 // 0
+    bytec 15 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    intc_1 // 1
+    +
+    bytec 15 // "e1"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:96
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.start_event@10:
+    // smart_contracts/bike_rental/contract.py:193
+    // if self.start_event() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@12
+    // smart_contracts/bike_rental/contract.py:194
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61:
+    // smart_contracts/bike_rental/contract.py:217
+    // executed = rule_executed != UInt64(0)
+    intc_0 // 0
+    !=
+    b smart_contracts.bike_rental.contract.BikeRental.execute_while_top@1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@12:
+    // smart_contracts/bike_rental/contract.py:102
+    // if self.e2.value > UInt64(0):
+    intc_0 // 0
+    bytec 4 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@17
+    // smart_contracts/bike_rental/contract.py:103
+    // self.e2.value -= UInt64(1)
+    intc_0 // 0
+    bytec 4 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    intc_1 // 1
+    -
+    bytec 4 // "e2"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:104
+    // if self.is_available.value == UInt64(0):
+    intc_0 // 0
+    bytec 28 // "is_available"
+    app_global_get_ex
+    assert // check self.is_available exists
+    bnz smart_contracts.bike_rental.contract.BikeRental.execute_else_body@15
+    // smart_contracts/bike_rental/contract.py:105
+    // self.e4.value += UInt64(1)
+    intc_0 // 0
+    bytec 7 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    intc_1 // 1
+    +
+    bytec 7 // "e4"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:106
+    // log(Bytes(b"XOR1: isAvailable==false -> end reject"))
+    pushbytes 0x584f52313a206973417661696c61626c653d3d66616c7365202d3e20656e642072656a656374
+    log
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@16:
+    // smart_contracts/bike_rental/contract.py:110
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor1_availability_check@18:
+    // smart_contracts/bike_rental/contract.py:195
+    // if self.xor1_availability_check() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@20
+    // smart_contracts/bike_rental/contract.py:196
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@20:
+    // smart_contracts/bike_rental/contract.py:116
+    // if self.e6.value > UInt64(0):
+    intc_0 // 0
+    bytec 8 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@25
+    // smart_contracts/bike_rental/contract.py:117
+    // self.e6.value -= UInt64(1)
+    intc_0 // 0
+    bytec 8 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    intc_1 // 1
+    -
+    bytec 8 // "e6"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:118
+    // if self.insurance_requested.value == UInt64(0):
+    intc_0 // 0
+    bytec 30 // "insurance_requested"
+    app_global_get_ex
+    assert // check self.insurance_requested exists
+    bnz smart_contracts.bike_rental.contract.BikeRental.execute_else_body@23
+    // smart_contracts/bike_rental/contract.py:119
+    // self.e7.value += UInt64(1)
+    intc_0 // 0
+    bytec 9 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    intc_1 // 1
+    +
+    bytec 9 // "e7"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:120
+    // log(Bytes(b"XOR2: insuranceReq==false -> skip insurance"))
+    pushbytes 0x584f52323a20696e737572616e63655265713d3d66616c7365202d3e20736b697020696e737572616e6365
+    log
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@24:
+    // smart_contracts/bike_rental/contract.py:124
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor2_insurance_check@26:
+    // smart_contracts/bike_rental/contract.py:197
+    // if self.xor2_insurance_check() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@28
+    // smart_contracts/bike_rental/contract.py:198
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@28:
+    // smart_contracts/bike_rental/contract.py:130
+    // if self.e7.value > UInt64(0):
+    intc_0 // 0
+    bytec 9 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@30
+    // smart_contracts/bike_rental/contract.py:131
+    // self.e7.value -= UInt64(1)
+    intc_0 // 0
+    bytec 9 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    intc_1 // 1
+    -
+    bytec 9 // "e7"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:132
+    // self.e11.value += UInt64(1)
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    intc_1 // 1
+    +
+    bytec 5 // "e11"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:133
+    // log(Bytes(b"XOR3: no insurance path joined"))
+    pushbytes 0x584f52333a206e6f20696e737572616e63652070617468206a6f696e6564
+    log
+    // smart_contracts/bike_rental/contract.py:134
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor3_insurance_join@33:
+    // smart_contracts/bike_rental/contract.py:199
+    // if self.xor3_insurance_join() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@35
+    // smart_contracts/bike_rental/contract.py:200
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@35:
+    // smart_contracts/bike_rental/contract.py:145
+    // if self.e16.value > UInt64(0):
+    intc_0 // 0
+    bytec 11 // "e16"
+    app_global_get_ex
+    assert // check self.e16 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@40
+    // smart_contracts/bike_rental/contract.py:146
+    // self.e16.value -= UInt64(1)
+    intc_0 // 0
+    bytec 11 // "e16"
+    app_global_get_ex
+    assert // check self.e16 exists
+    intc_1 // 1
+    -
+    bytec 11 // "e16"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:147
+    // if self.refund_requested.value == UInt64(1):
+    intc_0 // 0
+    bytec 33 // "refund_requested"
+    app_global_get_ex
+    assert // check self.refund_requested exists
+    intc_1 // 1
+    ==
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_else_body@38
+    // smart_contracts/bike_rental/contract.py:148
+    // self.e17.value += UInt64(1)
+    intc_0 // 0
+    bytec 24 // "e17"
+    app_global_get_ex
+    assert // check self.e17 exists
+    intc_1 // 1
+    +
+    bytec 24 // "e17"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:149
+    // log(Bytes(b"XOR4: ask==true -> process refund"))
+    pushbytes 0x584f52343a2061736b3d3d74727565202d3e2070726f6365737320726566756e64
+    log
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@39:
+    // smart_contracts/bike_rental/contract.py:153
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor4_refund_check@41:
+    // smart_contracts/bike_rental/contract.py:201
+    // if self.xor4_refund_check() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@43
+    // smart_contracts/bike_rental/contract.py:202
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@43:
+    // smart_contracts/bike_rental/contract.py:159
+    // if self.e18.value > UInt64(0):
+    intc_0 // 0
+    bytec 12 // "e18"
+    app_global_get_ex
+    assert // check self.e18 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@45
+    // smart_contracts/bike_rental/contract.py:160
+    // self.e18.value -= UInt64(1)
+    intc_0 // 0
+    bytec 12 // "e18"
+    app_global_get_ex
+    assert // check self.e18 exists
+    intc_1 // 1
+    -
+    bytec 12 // "e18"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:161
+    // self.e20.value += UInt64(1)
+    intc_0 // 0
+    bytec 6 // "e20"
+    app_global_get_ex
+    assert // check self.e20 exists
+    intc_1 // 1
+    +
+    bytec 6 // "e20"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:162
+    // log(Bytes(b"XOR5: no refund path joined"))
+    pushbytes 0x584f52353a206e6f20726566756e642070617468206a6f696e6564
+    log
+    // smart_contracts/bike_rental/contract.py:163
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor5_refund_join@48:
+    // smart_contracts/bike_rental/contract.py:203
+    // if self.xor5_refund_join() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@50
+    // smart_contracts/bike_rental/contract.py:204
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@50:
+    // smart_contracts/bike_rental/contract.py:174
+    // if self.e23.value > UInt64(0):
+    intc_0 // 0
+    bytec_3 // "e23"
+    app_global_get_ex
+    assert // check self.e23 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@52
+    // smart_contracts/bike_rental/contract.py:175
+    // self.e23.value -= UInt64(1)
+    intc_0 // 0
+    bytec_3 // "e23"
+    app_global_get_ex
+    assert // check self.e23 exists
+    intc_1 // 1
+    -
+    bytec_3 // "e23"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:176
+    // log(Bytes(b"Process completed: success"))
+    pushbytes 0x50726f6365737320636f6d706c657465643a2073756363657373
+    log
+    // smart_contracts/bike_rental/contract.py:177
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.end_success@53:
+    // smart_contracts/bike_rental/contract.py:205
+    // if self.end_success() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@55
+    // smart_contracts/bike_rental/contract.py:206
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@55:
+    // smart_contracts/bike_rental/contract.py:183
+    // if self.e4.value > UInt64(0):
+    intc_0 // 0
+    bytec 7 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@57
+    // smart_contracts/bike_rental/contract.py:184
+    // self.e4.value -= UInt64(1)
+    intc_0 // 0
+    bytec 7 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    intc_1 // 1
+    -
+    bytec 7 // "e4"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:185
+    // log(Bytes(b"Process completed: reject - bike not available"))
+    pushbytes 0x50726f6365737320636f6d706c657465643a2072656a656374202d2062696b65206e6f7420617661696c61626c65
+    log
+    // smart_contracts/bike_rental/contract.py:186
+    // return UInt64(1)
+    intc_1 // 1
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.end_reject@58:
+    // smart_contracts/bike_rental/contract.py:207
+    // if self.end_reject() != UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@60
+    // smart_contracts/bike_rental/contract.py:208
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@60:
+    // smart_contracts/bike_rental/contract.py:209
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:216
+    // rule_executed = self.execute_one_rule()
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.execute_one_rule@61
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@57:
+    // smart_contracts/bike_rental/contract.py:187
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:207
+    // if self.end_reject() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.end_reject@58
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@52:
+    // smart_contracts/bike_rental/contract.py:178
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:205
+    // if self.end_success() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.end_success@53
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@45:
+    // smart_contracts/bike_rental/contract.py:164
+    // if self.e19.value > UInt64(0):
+    intc_0 // 0
+    bytec 13 // "e19"
+    app_global_get_ex
+    assert // check self.e19 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@47
+    // smart_contracts/bike_rental/contract.py:165
+    // self.e19.value -= UInt64(1)
+    intc_0 // 0
+    bytec 13 // "e19"
+    app_global_get_ex
+    assert // check self.e19 exists
+    intc_1 // 1
+    -
+    bytec 13 // "e19"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:166
+    // self.e20.value += UInt64(1)
+    intc_0 // 0
+    bytec 6 // "e20"
+    app_global_get_ex
+    assert // check self.e20 exists
+    intc_1 // 1
+    +
+    bytec 6 // "e20"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:167
+    // log(Bytes(b"XOR5: refund path joined"))
+    pushbytes 0x584f52353a20726566756e642070617468206a6f696e6564
+    log
+    // smart_contracts/bike_rental/contract.py:168
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:203
+    // if self.xor5_refund_join() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor5_refund_join@48
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@47:
+    // smart_contracts/bike_rental/contract.py:169
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:203
+    // if self.xor5_refund_join() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor5_refund_join@48
+
+smart_contracts.bike_rental.contract.BikeRental.execute_else_body@38:
+    // smart_contracts/bike_rental/contract.py:151
+    // self.e18.value += UInt64(1)
+    intc_0 // 0
+    bytec 12 // "e18"
+    app_global_get_ex
+    assert // check self.e18 exists
+    intc_1 // 1
+    +
+    bytec 12 // "e18"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:152
+    // log(Bytes(b"XOR4: ask==false -> skip refund"))
+    pushbytes 0x584f52343a2061736b3d3d66616c7365202d3e20736b697020726566756e64
+    log
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@39
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@40:
+    // smart_contracts/bike_rental/contract.py:154
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:201
+    // if self.xor4_refund_check() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor4_refund_check@41
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@30:
+    // smart_contracts/bike_rental/contract.py:135
+    // if self.e10.value > UInt64(0):
+    intc_0 // 0
+    bytec 10 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@32
+    // smart_contracts/bike_rental/contract.py:136
+    // self.e10.value -= UInt64(1)
+    intc_0 // 0
+    bytec 10 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    intc_1 // 1
+    -
+    bytec 10 // "e10"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:137
+    // self.e11.value += UInt64(1)
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    intc_1 // 1
+    +
+    bytec 5 // "e11"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:138
+    // log(Bytes(b"XOR3: insurance path joined"))
+    pushbytes 0x584f52333a20696e737572616e63652070617468206a6f696e6564
+    log
+    // smart_contracts/bike_rental/contract.py:139
+    // return UInt64(1)
+    intc_1 // 1
+    // smart_contracts/bike_rental/contract.py:199
+    // if self.xor3_insurance_join() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor3_insurance_join@33
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@32:
+    // smart_contracts/bike_rental/contract.py:140
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:199
+    // if self.xor3_insurance_join() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor3_insurance_join@33
+
+smart_contracts.bike_rental.contract.BikeRental.execute_else_body@23:
+    // smart_contracts/bike_rental/contract.py:122
+    // self.e8.value += UInt64(1)
+    intc_0 // 0
+    bytec 18 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    intc_1 // 1
+    +
+    bytec 18 // "e8"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:123
+    // log(Bytes(b"XOR2: insuranceReq==true -> pay insurance"))
+    pushbytes 0x584f52323a20696e737572616e63655265713d3d74727565202d3e2070617920696e737572616e6365
+    log
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@24
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@25:
+    // smart_contracts/bike_rental/contract.py:125
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:197
+    // if self.xor2_insurance_check() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor2_insurance_check@26
+
+smart_contracts.bike_rental.contract.BikeRental.execute_else_body@15:
+    // smart_contracts/bike_rental/contract.py:108
+    // self.e3.value += UInt64(1)
+    intc_0 // 0
+    bytec 16 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    intc_1 // 1
+    +
+    bytec 16 // "e3"
+    swap
+    app_global_put
+    // smart_contracts/bike_rental/contract.py:109
+    // log(Bytes(b"XOR1: isAvailable==true -> continue"))
+    pushbytes 0x584f52313a206973417661696c61626c653d3d74727565202d3e20636f6e74696e7565
+    log
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@16
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@17:
+    // smart_contracts/bike_rental/contract.py:111
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:195
+    // if self.xor1_availability_check() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.xor1_availability_check@18
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@9:
+    // smart_contracts/bike_rental/contract.py:97
+    // return UInt64(0)
+    intc_0 // 0
+    // smart_contracts/bike_rental/contract.py:193
+    // if self.start_event() != UInt64(0):
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_inlined_smart_contracts.bike_rental.contract.BikeRental.start_event@10
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_while@3:
+    // smart_contracts/bike_rental/contract.py:220
+    // self.e0.value
+    intc_0 // 0
+    bytec 14 // "e0"
+    app_global_get_ex
+    assert // check self.e0 exists
+    // smart_contracts/bike_rental/contract.py:221
+    // + self.e1.value
+    intc_0 // 0
+    bytec 15 // "e1"
+    app_global_get_ex
+    assert // check self.e1 exists
+    // smart_contracts/bike_rental/contract.py:220-221
+    // self.e0.value
+    // + self.e1.value
+    +
+    // smart_contracts/bike_rental/contract.py:222
+    // + self.e2.value
+    intc_0 // 0
+    bytec 4 // "e2"
+    app_global_get_ex
+    assert // check self.e2 exists
+    // smart_contracts/bike_rental/contract.py:220-222
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    +
+    // smart_contracts/bike_rental/contract.py:223
+    // + self.e3.value
+    intc_0 // 0
+    bytec 16 // "e3"
+    app_global_get_ex
+    assert // check self.e3 exists
+    // smart_contracts/bike_rental/contract.py:220-223
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    +
+    // smart_contracts/bike_rental/contract.py:224
+    // + self.e4.value
+    intc_0 // 0
+    bytec 7 // "e4"
+    app_global_get_ex
+    assert // check self.e4 exists
+    // smart_contracts/bike_rental/contract.py:220-224
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    +
+    // smart_contracts/bike_rental/contract.py:225
+    // + self.e5.value
+    intc_0 // 0
+    bytec 17 // "e5"
+    app_global_get_ex
+    assert // check self.e5 exists
+    // smart_contracts/bike_rental/contract.py:220-225
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    +
+    // smart_contracts/bike_rental/contract.py:226
+    // + self.e6.value
+    intc_0 // 0
+    bytec 8 // "e6"
+    app_global_get_ex
+    assert // check self.e6 exists
+    // smart_contracts/bike_rental/contract.py:220-226
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    +
+    // smart_contracts/bike_rental/contract.py:227
+    // + self.e7.value
+    intc_0 // 0
+    bytec 9 // "e7"
+    app_global_get_ex
+    assert // check self.e7 exists
+    // smart_contracts/bike_rental/contract.py:220-227
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    +
+    // smart_contracts/bike_rental/contract.py:228
+    // + self.e8.value
+    intc_0 // 0
+    bytec 18 // "e8"
+    app_global_get_ex
+    assert // check self.e8 exists
+    // smart_contracts/bike_rental/contract.py:220-228
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    +
+    // smart_contracts/bike_rental/contract.py:229
+    // + self.e9.value
+    intc_0 // 0
+    bytec 19 // "e9"
+    app_global_get_ex
+    assert // check self.e9 exists
+    // smart_contracts/bike_rental/contract.py:220-229
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    +
+    // smart_contracts/bike_rental/contract.py:230
+    // + self.e10.value
+    intc_0 // 0
+    bytec 10 // "e10"
+    app_global_get_ex
+    assert // check self.e10 exists
+    // smart_contracts/bike_rental/contract.py:220-230
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    +
+    // smart_contracts/bike_rental/contract.py:231
+    // + self.e11.value
+    intc_0 // 0
+    bytec 5 // "e11"
+    app_global_get_ex
+    assert // check self.e11 exists
+    // smart_contracts/bike_rental/contract.py:220-231
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    +
+    // smart_contracts/bike_rental/contract.py:232
+    // + self.e12.value
+    intc_0 // 0
+    bytec 20 // "e12"
+    app_global_get_ex
+    assert // check self.e12 exists
+    // smart_contracts/bike_rental/contract.py:220-232
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    +
+    // smart_contracts/bike_rental/contract.py:233
+    // + self.e13.value
+    intc_0 // 0
+    bytec 21 // "e13"
+    app_global_get_ex
+    assert // check self.e13 exists
+    // smart_contracts/bike_rental/contract.py:220-233
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    +
+    // smart_contracts/bike_rental/contract.py:234
+    // + self.e14.value
+    intc_0 // 0
+    bytec 22 // "e14"
+    app_global_get_ex
+    assert // check self.e14 exists
+    // smart_contracts/bike_rental/contract.py:220-234
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    +
+    // smart_contracts/bike_rental/contract.py:235
+    // + self.e15.value
+    intc_0 // 0
+    bytec 23 // "e15"
+    app_global_get_ex
+    assert // check self.e15 exists
+    // smart_contracts/bike_rental/contract.py:220-235
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    +
+    // smart_contracts/bike_rental/contract.py:236
+    // + self.e16.value
+    intc_0 // 0
+    bytec 11 // "e16"
+    app_global_get_ex
+    assert // check self.e16 exists
+    // smart_contracts/bike_rental/contract.py:220-236
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    +
+    // smart_contracts/bike_rental/contract.py:237
+    // + self.e17.value
+    intc_0 // 0
+    bytec 24 // "e17"
+    app_global_get_ex
+    assert // check self.e17 exists
+    // smart_contracts/bike_rental/contract.py:220-237
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    +
+    // smart_contracts/bike_rental/contract.py:238
+    // + self.e18.value
+    intc_0 // 0
+    bytec 12 // "e18"
+    app_global_get_ex
+    assert // check self.e18 exists
+    // smart_contracts/bike_rental/contract.py:220-238
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    +
+    // smart_contracts/bike_rental/contract.py:239
+    // + self.e19.value
+    intc_0 // 0
+    bytec 13 // "e19"
+    app_global_get_ex
+    assert // check self.e19 exists
+    // smart_contracts/bike_rental/contract.py:220-239
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    // + self.e19.value
+    +
+    // smart_contracts/bike_rental/contract.py:240
+    // + self.e20.value
+    intc_0 // 0
+    bytec 6 // "e20"
+    app_global_get_ex
+    assert // check self.e20 exists
+    // smart_contracts/bike_rental/contract.py:220-240
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    // + self.e19.value
+    // + self.e20.value
+    +
+    // smart_contracts/bike_rental/contract.py:241
+    // + self.e21.value
+    intc_0 // 0
+    bytec 25 // "e21"
+    app_global_get_ex
+    assert // check self.e21 exists
+    // smart_contracts/bike_rental/contract.py:220-241
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    // + self.e19.value
+    // + self.e20.value
+    // + self.e21.value
+    +
+    // smart_contracts/bike_rental/contract.py:242
+    // + self.e22.value
+    intc_0 // 0
+    bytec 26 // "e22"
+    app_global_get_ex
+    assert // check self.e22 exists
+    // smart_contracts/bike_rental/contract.py:220-242
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    // + self.e19.value
+    // + self.e20.value
+    // + self.e21.value
+    // + self.e22.value
+    +
+    // smart_contracts/bike_rental/contract.py:243
+    // + self.e23.value
+    intc_0 // 0
+    bytec_3 // "e23"
+    app_global_get_ex
+    assert // check self.e23 exists
+    // smart_contracts/bike_rental/contract.py:220-243
+    // self.e0.value
+    // + self.e1.value
+    // + self.e2.value
+    // + self.e3.value
+    // + self.e4.value
+    // + self.e5.value
+    // + self.e6.value
+    // + self.e7.value
+    // + self.e8.value
+    // + self.e9.value
+    // + self.e10.value
+    // + self.e11.value
+    // + self.e12.value
+    // + self.e13.value
+    // + self.e14.value
+    // + self.e15.value
+    // + self.e16.value
+    // + self.e17.value
+    // + self.e18.value
+    // + self.e19.value
+    // + self.e20.value
+    // + self.e21.value
+    // + self.e22.value
+    // + self.e23.value
+    +
+    // smart_contracts/bike_rental/contract.py:246
+    // if total_tokens > UInt64(0):
+    bz smart_contracts.bike_rental.contract.BikeRental.execute_else_body@5
+    // smart_contracts/bike_rental/contract.py:247
+    // log(Bytes(b"The process instance is RUNNING"))
+    pushbytes 0x5468652070726f6365737320696e7374616e63652069732052554e4e494e47
+    log
+
+smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@6:
+    // smart_contracts/bike_rental/contract.py:250
+    // return UInt64(1)
+    intc_1 // 1
+    retsub
+
+smart_contracts.bike_rental.contract.BikeRental.execute_else_body@5:
+    // smart_contracts/bike_rental/contract.py:249
+    // log(Bytes(b"The process instance is COMPLETED"))
+    pushbytes 0x5468652070726f6365737320696e7374616e636520697320434f4d504c45544544
+    log
+    b smart_contracts.bike_rental.contract.BikeRental.execute_after_if_else@6
